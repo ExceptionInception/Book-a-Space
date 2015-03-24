@@ -1,7 +1,33 @@
+//
+// Book A Space
+// Copyright 2015.
+// Please see LICENSE for terms of use.
+//
+// This component provides the site layout for use with Jade.
 doctype html
-html
+html(ng-app="bookaspace")
   head
-    title= title
+    title .: Book A Space
+    base(href='/')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    block head
+  block body
+
+    div.header
+         p header
+
+    div.content
+        hr
+        ng-view
+        hr
+
+    div.footer
+         p &copy; 2015
+
+  script(src='javascripts/vendor/angular/angular.js')
+  script(src='javascripts/controllers.js')
+  script(src='javascripts/app.js')
+  script(src='javascripts/services.js')
+  script(src='javascripts/filters.js')
+  script(src='javascripts/directives.js')
+  script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js')

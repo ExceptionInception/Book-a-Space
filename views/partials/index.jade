@@ -1,0 +1,19 @@
+//
+// Book A Space
+// Copyright 2015.
+// Please see LICENSE for terms of use.
+//
+//https://github.com/fdietz/recipes-with-angular-js-examples/blob/master/chapter10/recipe1/contacts/views/partials/show.jade
+// This component describes the index page.
+{{name}}
+
+p
+   a(href='test2') test2
+
+   div(ng-controller='Test_3_Inline_Controller')
+      {{ greeting }}
+
+   form(action='/test4' method='get')
+      label Text :
+      input(type='text' name='test4_input')
+      input(type='submit')
