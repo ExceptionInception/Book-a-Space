@@ -10,7 +10,7 @@ Mongoose.connect('mongodb://localhost/bookaspace', function(err) {
 });
 
 exports.getWorkspaces = function (req, res, next) {
-	Workspaces.find(function (err, workspaces) {
+	Workspaces.find(req.query, function(err, workspaces) {
     	if (err) {
     		return next(err);
     	} else {
