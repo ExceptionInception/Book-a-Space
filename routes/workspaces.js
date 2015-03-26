@@ -13,4 +13,8 @@ router.get('/:id', function(req, res, next) {
 	DBController.getWorkspaceByID(req, res, next);
 });
 
+router.post('/', function(req, res, next) {
+	DBController.createWorkspace(req, res, next);
+});
+
 module.exports = router;

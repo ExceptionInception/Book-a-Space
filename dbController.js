@@ -28,3 +28,14 @@ exports.getWorkspaceByID = function(req, res, next) {
     }
   });
 };
+
+exports.createWorkspace = function(req, res, next) {
+  Workspaces.create(req.body, function (err, workspace) {
+    if (err) {
+        return next(err);
+    } else {
+        res.json(workspace);
+    }
+  });
+};
+
