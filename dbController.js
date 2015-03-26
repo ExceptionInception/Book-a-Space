@@ -9,8 +9,8 @@ Mongoose.connect('mongodb://localhost/bookaspace', function(err) {
     }
 });
 
-exports.getWorkspaces = function (req, res, next) {
-	Workspaces.find(req.query, function(err, workspaces) {
+exports.getWorkspaces = function(req, res, next) {
+	Workspaces.find(req.query, function (err, workspaces) {
     	if (err) {
     		return next(err);
     	} else {
@@ -29,6 +29,7 @@ exports.getWorkspaceByID = function(req, res, next) {
   });
 };
 
+// Add sanitization
 exports.createWorkspace = function(req, res, next) {
   Workspaces.create(req.body, function (err, workspace) {
     if (err) {
@@ -39,3 +40,24 @@ exports.createWorkspace = function(req, res, next) {
   });
 };
 
+// Add sanitization 
+exports.updateWorkspace = function (req, res, next) {
+    Workspaces.findByIdAndUpdate(req.params.id, req.body, function (err, workspace) {
+        if (err) {
+            return next(err);
+        } else {
+            res.json(workspace);
+        }
+    });
+};
+
+// Add santization
+exports.removeWorkspace = function (req, res, next) {
+    Workspaces.findByIdAndRemove(req.params.id, req.body, function (err, workspace) {
+        if (err) {
+            return next(err);
+        } else {
+            res.json(workspace);
+        }
+    });
+};
