@@ -61,3 +61,4 @@ exports.removeWorkspace = function (req, res, next) {
         }
     });
 };
+
