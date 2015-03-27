@@ -3,8 +3,10 @@ var assert = require('assert');
 var request = require('supertest');
 
 describe('Routing', function(){
-	var url = 'http://localhost:3000'
-	var workspacePath = '/api/workspaces/'
+	var url = 'http://localhost:3000';
+	var workspacePath = '/api/workspaces/';
+	var reservationsPath = '/api/reservations/';
+
 
 	describe('Workspace API', function(){
 		var workspace = {
@@ -71,7 +73,6 @@ describe('Routing', function(){
 					res.body.weekly.should.equal(workspace.weekly);
 					res.body.monthly.should.equal(workspace.monthly);
 					res.body.inventory.should.be.empty;
-					res.body.reservations.should.be.empty;
 					done();
 				});
 		});
@@ -123,6 +124,123 @@ describe('Routing', function(){
 			request(url)
 				.delete(workspacePath + workspace._id)
 				.expect(200)
+				.end(function(err, res) {
+					if (err) {
+						throw err;
+					}
+					done();
+				});
+		});
+	});
+	
+	describe('Reservations API', function() {
+		var testWorkspace = {
+			_id: "testspace"
+		};
+
+		before(function(done) {
+			request(url)
+				.post(workspacePath)
+				.send(testWorkspace)
+				.expect(200)
+				.expect('Content-Type', /json/)
+				.end(function(err, res) {
+					if (err) {
+						throw err;
+					} else {
+						done();
+					}
+				});
+		});
+
+		after(function(done) {
+			request(url)
+				.delete(workspacePath + testWorkspace._id)
+				.expect(200)
+				.expect('Content-Type', /json/)
+				.end(function(err, res) {
+					if (err) {
+						throw err;
+					} else {
+						done();
+					}
+				});
+		});
+
+		it('Retrieve a collection of reservations', function(done) {
+			request(url)
+				.get(reservationsPath)
+				.expect(200)
+				.expect('Content-Type', /json/)
+				.end(function(err, res) {
+					if (err) {
+						throw err;
+					} else{
+						done();
+					}
+				});
+		});
+
+		var testReservation = {
+			_id: "42215PM",
+			date: new Date(),
+			block: "PM",
+			author: "user001",
+			groupId: 1,
+			status: "Pending"
+		};
+
+		it('Create a new reservation', function(done) {
+			request(url)
+				.post(reservationsPath)
+				.send(testReservation)
+				.expect(200)
+				.end(function(err,res){
+					if (err) {
+						throw err;
+					}
+					done();
+				});
+		});
+
+		it('Return error trying to create duplicate reservation', function(done) {
+			request(url)
+				.post(reservationsPath)
+				.send(testReservation)
+				.expect(500)
+				.end(function(err, res) {
+					if (err) {
+						throw err;
+					} else {
+						done();
+					}
+				});
+		});
+
+		it('Retrieve a reservation', function(done) {
+			request(url)
+				.get(reservationsPath + testReservation._id)
+				.expect(200)
+				.expect('Content-Type', /json/)
+				.end(function(err, res) {
+					if (err) {
+						throw err;
+					} else {
+						res.body._id.should.be.equal(testReservation._id);
+						res.body.author.should.be.equal(testReservation.author);
+						res.body.block.should.be.equal(testReservation.block);
+						res.body.groupId.should.be.equal(testReservation.groupId);
+						res.body.status.should.be.equal(testReservation.status);
+						done();
+					}
+				});
+		});
+
+		it('Remove a reservation', function(done) {
+			request(url)
+				.delete(reservationsPath + testReservation._id)
+				.expect(200)
+				.expect('Content-Type', /json/)
 				.end(function(err, res) {
 					if (err) {
 						throw err;

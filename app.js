@@ -8,6 +8,7 @@ var DBController = require('./dbController.js');
 var Mongoose = require('mongoose');
 var routes = require('./routes/index');
 var workspaces = require('./routes/workspaces');
+var reservations = require('./routes/reservations');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/workspaces', workspaces);
+app.use('/api/reservations', reservations);
 app.get('/', routes.index);
 app.get('/partials/:test', routes.partials);
 

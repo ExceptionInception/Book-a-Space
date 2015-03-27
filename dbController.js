@@ -1,5 +1,6 @@
 var Mongoose = require('mongoose');
 var Workspaces = require('./models/Workspace.js');
+var Reservations = require('./models/Reservation.js');
 
 Mongoose.connect('mongodb://localhost/bookaspace', function(err) {
     if(err) {
@@ -29,7 +30,6 @@ exports.getWorkspaceByID = function(req, res, next) {
   });
 };
 
-// Add sanitization
 exports.createWorkspace = function(req, res, next) {
   Workspaces.create(req.body, function (err, workspace) {
     if (err) {
@@ -40,8 +40,7 @@ exports.createWorkspace = function(req, res, next) {
   });
 };
 
-// Add sanitization 
-exports.updateWorkspace = function (req, res, next) {
+exports.updateWorkspace = function(req, res, next) {
     Workspaces.findByIdAndUpdate(req.params.id, req.body, function (err, workspace) {
         if (err) {
             return next(err);
@@ -51,9 +50,8 @@ exports.updateWorkspace = function (req, res, next) {
     });
 };
 
-// Add santization
-exports.removeWorkspace = function (req, res, next) {
-    Workspaces.findByIdAndRemove(req.params.id, req.body, function (err, workspace) {
+exports.removeWorkspace = function(req, res, next) {
+    Workspaces.findByIdAndRemove(req.params.id, req.body, function(err, workspace) {
         if (err) {
             return next(err);
         } else {
@@ -62,3 +60,42 @@ exports.removeWorkspace = function (req, res, next) {
     });
 };
 
+exports.createReservation = function(req, res, next) {
+    Reservations.create(req.body, function(err, reservation) {
+        if(err) {
+            return next(err);
+        } else {
+            res.json(reservation);
+        }
+    });
+};
+
+exports.getReservations = function(req, res, next) {
+    Reservations.find(req.query, function(err, reservations) {
+        if (err) {
+            return next(err);
+        } else {
+            res.json(reservations);
+        }
+  });
+};
+
+exports.getReservation = function(req, res, next) {
+    Reservations.findById(req.params.id, function(err, reservation) {
+        if (err) {
+            return next(err);
+        } else {
+            res.json(reservation);
+        }
+    });
+}
+
+exports.removeReservation = function(req, res, next) {
+    Reservations.remove(req.params.id, function(err, reservation) {
+        if (err) {
+            return next(err);
+        } else {
+            res.json(reservation);
+        }
+    })
+};

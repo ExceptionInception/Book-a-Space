@@ -12,15 +12,7 @@ var WorkspaceSchema = new Mongoose.Schema({
 	pmRate: Number,
 	weekly: Number,
 	monthly: Number,
-	inventory: Array,
-	reservations: [{
-		creationDate: {type: Date, default: Date.now},
-		date: {type: Date},
-		block: String,
-		author: String,
-		groupId: Number,
-		status: String
-		}]
+	inventory: Array
 	});
 
 module.exports = Mongoose.model('Workspace', WorkspaceSchema);
