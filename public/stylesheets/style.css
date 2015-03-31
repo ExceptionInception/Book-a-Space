@@ -1,8 +1,16 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#masthead {
+	background-color: #f78153;
+	text-align: center;
+	color: #fff;
+	margin: 0px;
 }
 
-a {
-  color: #00B7FF;
+#title {
+	font-size: 400%;
+	font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif; 
 }
+
+#subtitle {
+	font-family: Copperplate,Copperplate Gothic Light,fanta 
+}
+
