@@ -10,8 +10,8 @@
 // actual partial views (the actual page content.) and
 // inits the controller.
 
-angular.module('bookaspace', ['ngRoute',
-     'bookaspace.filters', 'bookaspace.services','bookaspace.directives']).
+angular.module('bookaspace', ['ngRoute', 'ui.bootstrap',
+  'bookaspace.filters', 'bookaspace.services','bookaspace.directives']).
  config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider) {
 
   $routeProvider.
@@ -22,10 +22,15 @@ angular.module('bookaspace', ['ngRoute',
        controller: testCtrl
     }).
 
-    // Test2 Page.
-    when ('/test2', {
-       templateUrl: 'partials/test2',
+    // workspace search criteria page
+    when ('/findaspace', {
+       templateUrl: 'partials/findaspace',
        controller: testCtrl2
+    }).
+
+    when ('/workspaceresults', {
+      templateUrl: 'partials/workspaceresults',
+      controller: workspaceResultsCtrl
     }).
 
     // Other pages.

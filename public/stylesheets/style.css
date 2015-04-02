@@ -1,16 +1,14 @@
-#masthead {
-	background-color: #f78153;
-	text-align: center;
-	color: #fff;
-	margin: 0px;
+body {
+  min-height: 1000px;
+  padding-top: 70px;
+  background: #0099CC
 }
 
-#title {
-	font-size: 400%;
-	font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif; 
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform:translateX(100%); }
+    to      { transform: translateX(0); }
 }
 
-#subtitle {
-	font-family: Copperplate,Copperplate Gothic Light,fanta 
-}
-
+    .ng-enter           { animation: slideInRight 0.5s both ease-in; z-index: 8888; }
+    .ng-leave           { animation: slideInRight 0.5s both ease-in; z-index: 9999; }

@@ -3,10 +3,10 @@ db.createCollection("workspaces");
 
 db.workspaces.insert({
 	_id: "FP-7-WS-430-189A",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "Executive Offices",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "south",
 	size: "6 x 8",
 	amRate: 2.58,
@@ -19,10 +19,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-WS-430-189B",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "Executive Offices",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "south",
 	size: "6 x 8",
 	amRate: 2.58,
@@ -35,10 +35,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-WS-430-190A",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "Executive Offices",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "south",
 	size: "6 x 8",
 	amRate: 2.58,
@@ -51,10 +51,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-WS-430-190B",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "Executive Offices",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "south",
 	size: "6 x 8",
 	amRate: 2.58,
@@ -67,10 +67,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-WS-470-11",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "Executive Offices",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "south",
 	size: "6 x 8",
 	amRate: 2.58,
@@ -83,10 +83,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-WS-470-12",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "Executive Offices",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "south",
 	size: "6 x 8",
 	amRate: 2.58,
@@ -99,10 +99,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FB-506-WS-14",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "Administration",
 	building: "Finance",
-	floor: 5,
+	floor: "5th",
 	room: "506",
 	size: "8 x 8",
 	amRate: 1.27,
@@ -115,10 +115,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FB-506-WS-15",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "Administration",
 	building: "Finance",
-	floor: 5,
+	floor: "5th",
 	room: "506",
 	size: "8 x 8",
 	amRate: 1.27,
@@ -131,10 +131,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FB-506-WS-16",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "Administration",
 	building: "Finance",
-	floor: 5,
+	floor: "5th",
 	room: "506",
 	size: "8 x 8",
 	amRate: 1.27,
@@ -147,10 +147,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "KS-7-WS-61",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "PennDOT",
 	building: "Keystone",
-	floor: 7,
+	floor: "7th",
 	room: "west",
 	size: "6 x 8",
 	amRate: 1.90,
@@ -163,10 +163,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "KS-7-WS-62",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "PennDOT",
 	building: "Keystone",
-	floor: 7,
+	floor: "7th",
 	room: "west",
 	size: "6 x 8",
 	amRate: 1.90,
@@ -179,10 +179,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "KS-7-WS-63",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "PennDOT",
 	building: "Keystone",
-	floor: 7,
+	floor: "7th",
 	room: "west",
 	size: "6 x 8",
 	amRate: 1.90,
@@ -195,10 +195,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "KS-7-WS-64",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "PennDOT",
 	building: "Keystone",
-	floor: 7,
+	floor: "7th",
 	room: "west",
 	size: "6 x 8",
 	amRate: 1.90,
@@ -211,10 +211,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "KS-7-WS-65",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "PennDOT",
 	building: "Keystone",
-	floor: 7,
+	floor: "7th",
 	room: "west",
 	size: "6 x 8",
 	amRate: 1.90,
@@ -227,10 +227,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "KS-7-WS-66",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "PennDOT",
 	building: "Keystone",
-	floor: 7,
+	floor: "7th",
 	room: "west",
 	size: "6 x 8",
 	amRate: 1.90,
@@ -243,10 +243,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "KS-7-WS-67",
-	type: "cubicle",
+	type: "Cubicle",
 	agency: "PennDOT",
 	building: "Keystone",
-	floor: 7,
+	floor: "7th",
 	room: "west",
 	size: "6 x 8",
 	amRate: 1.90,
@@ -259,10 +259,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-1",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "Conference Rm 1",
 	size: "1156 sq ft",
 	amRate: 56.57,
@@ -279,10 +279,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-2",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "Conference Rm 2",
 	size: "1235 sq ft",
 	amRate: 60.43,
@@ -299,10 +299,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-7A",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "Conference Rm 7A",
 	size: "280 sq ft",
 	amRate: 13.70,
@@ -319,10 +319,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-7B",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "Conference Rm 7B",
 	size: "192 sq ft",
 	amRate: 9.40,
@@ -339,10 +339,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-7B1",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "Conference Rm 7B1",
 	size: "192 sq ft",
 	amRate: 9.40,
@@ -359,10 +359,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-7C",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "Conference Rm 7C",
 	size: "444 sq ft",
 	amRate: 21.73,
@@ -379,10 +379,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-7C1",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "Conference Rm 7C1",
 	size: "154 sq ft",
 	amRate: 7.54,
@@ -399,10 +399,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-7D",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "Conference Rm 7D",
 	size: "267 sq ft",
 	amRate: 13.06,
@@ -419,10 +419,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-7E",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "Conference Rm 7E",
 	size: "258 sq ft",
 	amRate: 12.62,
@@ -439,10 +439,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-7I",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "Conference Rm 7I",
 	size: "288 sq ft",
 	amRate: 14.09,
@@ -459,10 +459,10 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-7J",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
-	floor: 7,
+	floor: "7th",
 	room: "Conference Rm 7J",
 	size: "192 sq ft",
 	amRate: 9.40,
@@ -479,7 +479,7 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-T1",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
 	room: "Training Rm 1",
@@ -498,7 +498,7 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-T2",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
 	room: "Training Rm 2",
@@ -517,7 +517,7 @@ db.workspaces.insert({
 
 db.workspaces.insert({
 	_id: "FP-7-CR-T3",
-	type: "conference room",
+	type: "Conference Room",
 	agency: "Administration",
 	building: "Forum Place",
 	room: "Training Rm 3",

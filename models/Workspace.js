@@ -5,7 +5,7 @@ var WorkspaceSchema = new Mongoose.Schema({
 	type: String,
 	agency: String,
 	building: String,
-	floor: Number,
+	floor: String,
 	room: String,
 	size: String,
 	amRate: Number,
