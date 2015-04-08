@@ -33,6 +33,16 @@ angular.module('bookaspace', ['ngRoute', 'ui.bootstrap',
       controller: workspaceResultsCtrl
     }).
 
+    when ('/bookingform', {
+      templateUrl: 'partials/bookingform',
+      controller: bookingformCtrl
+    }).
+
+    when ('/login', {
+      templateUrl: 'partials/login',
+      controller: loginCtrl
+    }).
+
     // Other pages.
     otherwise({
        redirectTo: '/'

@@ -6,11 +6,11 @@ div(class="panel panel-default")
       div.panel-heading
         h5.panel-title Type of Space
       div.panel-body
-        div(ng-controller="WorkspaceTypeButtonsCtrl")
-          div.btn-group
-              | <label class="btn btn-success" ng-model="checkModel.conferenceRm" btn-checkbox>Conference Room</label>
-              | <label class="btn btn-success" ng-model="checkModel.office" btn-checkbox>Office</label>
-              | <label class="btn btn-success" ng-model="checkModel.cubicle" btn-checkbox>Cubicle</label>
+        div(ng-controller="WorkspaceTypeButtonsCtrl" class="row")
+          div(class="btn-group col-md-4")
+            | <label class="btn btn-success" ng-model="checkModel.conferenceRm" btn-checkbox>Conference Room</label>
+            | <label class="btn btn-success" ng-model="checkModel.office" btn-checkbox>Office</label>
+            | <label class="btn btn-success" ng-model="checkModel.cubicle" btn-checkbox>Cubicle</label>
 
     div(class="panel panel-default" ng-controller="DatePickerCtrl")
       div.panel-heading

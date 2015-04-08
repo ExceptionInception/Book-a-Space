@@ -14,7 +14,7 @@ describe('Routing', function(){
 			type: 'room',
 			agency: 'testagency',
 			building: 'somebuilding',
-			floor: 13,
+			floor: '13',
 			room: 'north',
 			size: '10 sq ft',
 			amRate: 1,
@@ -93,7 +93,7 @@ describe('Routing', function(){
 		it('Update a workspace', function(done) {
 			request(url)
 				.put(workspacePath + workspace._id)
-				.send({type: 'office', floor: 1337})
+				.send({type: 'office', floor: '1337'})
 				.expect('Content-Type', /json/)
 				.expect(200)
 				.end(function(err, res) {
@@ -115,7 +115,7 @@ describe('Routing', function(){
 					}
 
 					res.body.type.should.equal('office');
-					res.body.floor.should.equal(1337);
+					res.body.floor.should.equal('1337');
 					done();
 				});
 		});

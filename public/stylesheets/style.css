@@ -4,11 +4,7 @@ body {
   background: #0099CC
 }
 
-/* slide in from the right */
-@keyframes slideInRight {
-    from    { transform:translateX(100%); }
-    to      { transform: translateX(0); }
+#resultOptions {
+    position: fixed;
+    z-index:100;
 }
-
-    .ng-enter           { animation: slideInRight 0.5s both ease-in; z-index: 8888; }
-    .ng-leave           { animation: slideInRight 0.5s both ease-in; z-index: 9999; }

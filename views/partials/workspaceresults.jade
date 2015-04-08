@@ -1,8 +1,35 @@
-div(class='panel panel-default')
+div(class="panel panel-default")
+ div.panel-heading
+    h1.panel-title Filter & Sort
+  div.panel-body
+    div.row
+      div.col-sm-4
+        label Sort By:
+        select(class="form-control" ng-model="sortExpression")
+          option(value="") Any
+          option(value="amRate") AM Rate
+          option(value="pmRate") PM Rate
+      div.col-sm-4
+        label Workspace Type:
+        select(class="form-control" ng-model="query.type")
+          option(value="") Any
+          option(value="Cubicle") Cubicle
+          option(value="Office") Office
+          option(value="Conference Room") Conference room
+      div.col-sm-4
+        label Location:
+        select(class="form-control" ng-model="query.building")
+          option(value="") Any
+          option(value="Forum Place") Forum Place
+          option(value="Keystone") Keystone Building
+          option(value="Finance") Finance Building
+
+
+div(class="panel panel-default")
   div.panel-heading
     h1.panel-title Search Results
   div.panel-body
-    div(class="panel panel-default" ng-repeat="workspace in workspaces | orderBy: sortExpression")
+    div(class="panel panel-default" ng-repeat="workspace in workspaces | orderBy: sortExpression | filter: query")
       div.panel-heading
         | <h3 class="panel-title">{{workspace._id}}<span class="pull-right panel-title">{{workspace.type}}</span></h3>
       div.panel-body
@@ -23,5 +50,6 @@ div(class='panel panel-default')
             u Inventory
             ul(class="list-unstyled")
               li(ng-repeat="item in workspace.inventory") {{item}}
-        a(class="btn btn-md btn-primary pull-right" href="/reserveSpace" role="button") Book it! &raquo
+
+        a(class="btn btn-md btn-primary pull-right" href="/bookingform" role="button") Book it! &raquo
     

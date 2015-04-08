@@ -20,36 +20,35 @@ html(ng-app="bookaspace")
 
 
   body
-    nav(class="navbar navbar-default navbar-fixed-top")
-      div.container
-        div.navbar-header
-          button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a(class="navbar-brand" href="/") Book a Space
-
-        div(id="navbar" class="navbar-collapse collapse")
-          ul(class="nav navbar-nav")
-            li
-              a(href="/findaspace") Find a Space 
-            li
-              a(href="/myreservations") My Reservations
-            li(class="dropdown")
-              a(class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" disbled) Administration 
-                span.caret
-              ul(class="dropdown-menu" role="menu")
-                li 
-                  a(href="admin/workspaces") Workspaces
-                li 
-                  a(href="admin/reservations") Reservations
-          ul(class="nav navbar-nav navbar-right") 
-            li
-              a(href="/policy") Policies & Conditions
-
     div.container
-        ng-view
+      nav(class="navbar navbar-default navbar-fixed-top")
+          div.navbar-header
+            button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a(class="navbar-brand" href="/") Book a Space
+
+          div(id="navbar" class="navbar-collapse collapse")
+            ul(class="nav navbar-nav")
+              li
+                a(href="/findaspace") Find a Space 
+              li
+                a(href="/myreservations") My Reservations
+              li(class="dropdown")
+                a(class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" disbled) Administration 
+                  span.caret
+                ul(class="dropdown-menu" role="menu")
+                  li 
+                    a(href="admin/workspaces") Workspaces
+                  li 
+                    a(href="admin/reservations") Reservations
+            ul(class="nav navbar-nav navbar-right") 
+              li
+                a(href="/policy") Policies & Conditions
+
+      ng-view
   
   script(src='javascripts/vendor/jquery/jquery.min.js')
   script(src='javascripts/vendor/bootstrap-javascript/bootstrap.js')

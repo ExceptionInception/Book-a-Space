@@ -84,6 +84,14 @@ function workspaceResultsCtrl($scope, $http) {
     });
 }
 
+function bookingformCtrl($scope, $http) {
+
+}
+
+function loginCtrl($scope, $http) {
+  
+}
+
 angular.module('bookaspace', []).controller('Test_3_Inline_Controller', Test_3_Inline_Controller)
 
 

@@ -6,4 +6,3 @@ angular.module('bookaspace.filters', []).
      return String(text).replace(/\%VERSION\%/mg, version);
    }
 }]);
-
