@@ -25,7 +25,7 @@ angular.module('bookaspace', ['ngRoute', 'ui.bootstrap',
     // workspace search criteria page
     when ('/findaspace', {
        templateUrl: 'partials/findaspace',
-       controller: testCtrl2
+       controller: findaspaceCtrl
     }).
 
     when ('/workspaceresults', {
@@ -41,6 +41,11 @@ angular.module('bookaspace', ['ngRoute', 'ui.bootstrap',
     when ('/login', {
       templateUrl: 'partials/login',
       controller: loginCtrl
+    }).
+
+    when ('/workspaceadmin', {
+      templateUrl: 'partials/workspaceadmin',
+      controller: workspaceadminCtrl
     }).
 
     // Other pages.

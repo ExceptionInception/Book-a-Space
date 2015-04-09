@@ -20,15 +20,8 @@ function testCtrl($scope, $http) {
     });
 }
 
-function testCtrl2($scope, $http) {
-  $http.get('/api/test2').
-    success(function(data, status, headers, config) {
-       $scope.test2_name = data.test2_name;
-    });
-}
+function findaspaceCtrl($scope, $http) {
 
-function Test_3_Inline_Controller($scope) {
-  $scope.greeting = 'Test_3_Inline_Controller';
 }
 
 function WorkspaceTypeButtonsCtrl ($scope) {
@@ -44,6 +37,7 @@ function DatePickerCtrl ($scope) {
     $scope.today = function() {
     $scope.dt = new Date();
   };
+
   $scope.today();
 
   $scope.clear = function () {
@@ -76,23 +70,37 @@ function DatePickerCtrl ($scope) {
   $scope.format = $scope.formats[0]
 }
 
-function workspaceResultsCtrl($scope, $http) {
+function workspaceResultsCtrl($scope, $http, $window, BookingService) {
     $http.get('/api/workspaces').
     success(function(data, status, headers, config) {
        $scope.workspaces = data;
-       $scope.class = "myClassName";
     });
+
+    $scope.pickSpace = function (workspace) {
+        BookingService.setSpace(workspace);
+  };
 }
 
-function bookingformCtrl($scope, $http) {
+function bookingformCtrl($scope, $http, BookingService) {
+  $scope.test = BookingService.exampleValue;
+  function loadspace() {
+    $scope.workspace = BookingService.getSpace();
+  }
 
+  loadspace();
 }
 
 function loginCtrl($scope, $http) {
   
 }
 
-angular.module('bookaspace', []).controller('Test_3_Inline_Controller', Test_3_Inline_Controller)
+function workspaceadminCtrl($scope, $http) {
+  $http.get('/api/workspaces').
+    success(function(data, status, headers, config) {
+       $scope.workspaces = data;
+    });
+
+}
 
 
 

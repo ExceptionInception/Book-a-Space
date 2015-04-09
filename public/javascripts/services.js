@@ -1,5 +1,18 @@
 'use strict';
 
 angular.module('bookaspace.services', []).
-  value('version', '0.1');
+    service('BookingService', function(){
+    	var selectedSpace = [];
+
+        return {
+
+            setSpace: function(workspace) {
+            	selectedSpace = workspace;
+            },
+
+            getSpace: function() {
+            	return selectedSpace;
+            }
+        };
+    });
 

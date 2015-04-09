@@ -24,14 +24,25 @@ div(class="panel panel-default")
           option(value="Keystone") Keystone Building
           option(value="Finance") Finance Building
 
-
 div(class="panel panel-default")
   div.panel-heading
     h1.panel-title Search Results
   div.panel-body
     div(class="panel panel-default" ng-repeat="workspace in workspaces | orderBy: sortExpression | filter: query")
       div.panel-heading
-        | <h3 class="panel-title">{{workspace._id}}<span class="pull-right panel-title">{{workspace.type}}</span></h3>
+        div.row
+          div.col-sm-4
+            h3.panel-title {{workspace._id}}
+          div(class="col-sm-8")
+            div.pull-right
+              | <button type="button" class="btn btn-default btn-xs" ng-click="editSpace()">
+              |   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              | </button>
+
+              | <button type="button" class="btn btn-default btn-xs">
+              |   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              | </button>
+
       div.panel-body
         div.row
           div.col-sm-4
@@ -51,5 +62,4 @@ div(class="panel panel-default")
             ul(class="list-unstyled")
               li(ng-repeat="item in workspace.inventory") {{item}}
 
-        a(class="btn btn-md btn-primary pull-right" ng-click="pickSpace(workspace)" href="/bookingform" role="button") Book it! &raquo
     

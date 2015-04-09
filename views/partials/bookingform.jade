@@ -1,14 +1,100 @@
 div(class="panel panel-default")
   div.panel-heading
-    h4.panel-title Booking
+    h2.panel-title Booking
   div.panel-body
     div(class="panel panel-default")
       div.panel-heading
-        h4.panel-title Space Info
+        | <h3 class="panel-title">{{workspace._id}}<span class="pull-right panel-title">{{workspace.type}}</span></h3>
       div.panel-body
-        p Details of the space to be reserved goes here
+        div.row
+          div.col-sm-4
+            p 
+              | <u>Location</u>
+              | <br>{{workspace.agency}}
+              | <br>{{workspace.building}} Building
+              | <br>{{workspace.floor}} floor
+              | <br>{{workspace.room}}
+          div.col-sm-4
+            p
+              | <u>Rates</u>
+              | <br>AM Rate: {{workspace.amRate | currency}}
+              | <br>PM Rate: {{workspace.pmRate | currency}}
+          div.col-sm-4
+            u Inventory
+            ul(class="list-unstyled")
+              li(ng-repeat="item in workspace.inventory") {{item}}
+
     div(class="panel panel-default")
       div.panel-heading
-        h4.panel-title Your Information
+        h4.panel-title Parking
+      div(class="panel-body row")
+        div(class="btn-group col-md-4")
+          | <label class="btn btn-success" ng-model="parking.requireToken" btn-checkbox>Purchase Token (+$10)</label>
+          | <label class="btn btn-success" ng-model="parking.noToken" btn-checkbox>No Token</label>
+
+
+    div(class="panel panel-default")
+      div.panel-heading
+        h4.panel-title My Information
       div.panel-body
-        p User info
+        form
+          div.row
+            div.col-sm-6
+              div.form-group
+                label(for="name") Name:
+                input(type="text" class="form-control" id="name" placeholder="Name")
+          div.row
+            div.col-sm-6
+              div.form-group
+                label(for="agency") Agency:
+                input(type="password" class="form-control" id="agency" placeholder="Agency")
+
+          div.row
+            div.col-sm-6
+              div.form-group
+                label(for="email") Email:
+                input(type="email" class="form-control" id="email" placeholder="Email")
+
+          div.row
+            div.col-sm-6
+              div.form-group
+                label(for="glcode") GL Code:
+                input(type="text" class="form-control" id="glcode" placeholder="GL Code" value="6351500" readonly)
+
+          div.row
+            div.col-sm-6
+              div.form-group
+                label(for="sapfund") SAP Fund:
+                input(type="text" class="form-control" id="sapfund" placeholder="SAP Fund")
+
+          div.row
+            div.col-sm-6
+              div.form-group
+                label(for="costcenter") Cost Center:
+                input(type="text" class="form-control" id="costcenter" placeholder="Cost Center")
+
+          div.row
+            div.col-sm-6
+              div.form-group
+                label(for="budgetperiod") Budget Period:
+                input(type="text" class="form-control" id="budgetperiod" placeholder="Budget Period")
+
+    div(class="panel panel-default")
+      div.panel-heading
+        h4.panel-title Supervisor Information
+      div.panel-body
+        div.row
+          div.col-sm-6
+            div.form-group
+              label(for="supname") Name:
+              input(type="text" class="form-control" id="supname" placeholder="Supervisor Name")
+
+        div.row
+          div.col-sm-6
+            div.form-group
+              label(for="supemail") Email:
+              input(type="text" class="form-control" id="supemail" placeholder="Supervisor Email")
+
+
+
+    button(type="submit" class="btn btn-primary pull-right") Create Reservation
