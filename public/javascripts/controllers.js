@@ -113,7 +113,14 @@ function workspaceadminCtrl($scope, $http, $modal) {
     });
 
     modalInstance.result.then(function (editedWorkspace) {
-      // update model with new workspace data
+      workspace.type = editedWorkspace.type;
+      workspace.agency = editedWorkspace.agency;
+      workspace.floor = editedWorkspace.floor;
+      workspace.room = editedWorkspace.room;
+      workspace.size = editedWorkspace.size;
+      workspace.amRate = editedWorkspace.amRate;
+      workspace.pmRate = editedWorkspace.pmRate;
+      workspace.inventory = editedWorkspace.inventory;
     }, function() {
 
     });
@@ -143,7 +150,27 @@ function workspaceadminCtrl($scope, $http, $modal) {
 }
 
 function editWorkspace($http, $scope, $modalInstance, workspace) {
-  $scope.workspace = workspace;
+  $scope.workspace = {};
+  $scope.id = workspace._id;
+
+  $scope.workspace.type = workspace.type;
+  $scope.workspace.agency = workspace.agency;
+  $scope.workspace.floor = workspace.floor;
+  $scope.workspace.room = workspace.room;
+  $scope.workspace.size = workspace.size;
+  $scope.workspace.amRate = workspace.amRate;
+  $scope.workspace.pmRate = workspace.pmRate;
+  $scope.workspace.inventory = workspace.inventory;
+
+  $scope.commitEdit = function () {
+    $http.put('api/workspaces/' + $scope.id, $scope.workspace).
+      success(function(data, status, headers, config) {
+        $modalInstance.close($scope.workspace);
+        // possibly indicate success to the user?
+      }).error(function(data, status, headers, config) {
+        console.log("Could not edit workspace " + $scope.id);
+      })
+  };
 
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');

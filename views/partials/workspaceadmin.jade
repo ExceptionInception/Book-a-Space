@@ -70,17 +70,17 @@ div(class="panel panel-default")
                       span(aria-hidden="false")&times;
 
                 div.modal-body
-                  form(ng-submit="commitEdit()")
+                  form
                     div.row
                       div.col-sm-6
                         div.form-group
                           label(for="id") ID:
-                          input(type="text" class="form-control" id="id" value="{{workspace._id}}")
+                          input(type="text" class="form-control" id="id" value="{{id}}" disabled)
 
                       div.col-sm-6
                         div.form-group
                           label(for="type") Type:
-                          select(id="type" class="form-control")
+                          select(id="type" class="form-control" ng-model="workspace.type")
                             option(value="" disabled selected) {{workspace.type}}
                             option(value="Cubicle") Cubicle
                             option(value="Conference Room") Conference Room
@@ -91,34 +91,34 @@ div(class="panel panel-default")
                       div.col-sm-6
                         div.form-group
                           label(for="agency") Agency:
-                          input(type="text" class="form-control" id="agency" value="{{workspace.agency}}")
+                          input(type="text" class="form-control" id="agency" ng-model="workspace.agency")
 
                       div.col-sm-6
                         div.form-group
                           label(for="floor") Floor:
-                          input(type="text" class="form-control" id="floor" value="{{workspace.floor}}")
+                          input(type="text" class="form-control" id="floor" ng-model="workspace.floor")
 
                     div.row
                       div.col-sm-6
                         div.form-group
                           label(for="room") Room:
-                          input(type="text" class="form-control" id="room" value="{{workspace.room}}")
+                          input(type="text" class="form-control" id="room" ng-model="workspace.room")
 
                       div.col-sm-6
                         div.form-group
                           label(for="size") Size:
-                          input(type="text" class="form-control" id="size" value="{{workspace.size}}")
+                          input(type="text" class="form-control" id="size" ng-model="workspace.size")
 
                     div.row
                       div.col-sm-3
                         div.form-group
                           label(for="amRate") AM Rate:
-                          input(type="number" class="form-control" id="amRate" value="{{workspace.amRate}}" step="0.01" size="6")
+                          input(type="number" class="form-control" id="amRate" ng-model="workspace.amRate" step="0.01" size="6")
 
                       div.col-sm-3
                         div.form-group
                           label(for="pmRate") PM Rate:
-                          input(type="number" class="form-control" id="pmRate" value="{{workspace.pmRate}}" step="0.01" size="6")
+                          input(type="number" class="form-control" id="pmRate" ng-model="workspace.pmRate" step="0.01" size="6")
 
                     div.row
                       div.col-sm-6
@@ -133,7 +133,7 @@ div(class="panel panel-default")
                             button(type="button" class="btn btn-default" ng-click="addItem(item)") Add
 
                 div.modal-footer
-                  button(type="submit" value="submit" class="btn btn-primary") Submit
+                  button(type="button" ng-click="commitEdit()" class="btn btn-primary") Submit
                   button(ng-click="cancel()" type="button" class="btn btn-danger") Cancel
 
               script(type="text/ng-template" id="partials/deleteWorkspace")
