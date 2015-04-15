@@ -94,11 +94,86 @@ function loginCtrl($scope, $http) {
   
 }
 
-function workspaceadminCtrl($scope, $http) {
+function workspaceadminCtrl($scope, $http, $modal) {
   $http.get('/api/workspaces').
     success(function(data, status, headers, config) {
        $scope.workspaces = data;
     });
+
+  $scope.editWorkspace = function (size, workspace) {
+    var modalInstance = $modal.open({
+      templateUrl: 'partials/editWorkspace',
+      controller: 'editWorkspace',
+      size: size,
+      resolve: {
+        workspace: function () {
+          return workspace;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (editedWorkspace) {
+      // update model with new workspace data
+    }, function() {
+
+    });
+  }
+
+  $scope.deleteWorkspace = function (workspace) {
+
+    var modalInstance = $modal.open({
+      templateUrl: 'partials/deleteWorkspace',
+      controller: 'deleteWorkspace',
+      resolve: {
+        workspace: function () {
+          return workspace;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (removedWorkspace) {
+      console.log($scope.workspaces);
+      var index = $scope.workspaces.indexOf(removedWorkspace);
+      $scope.workspaces.splice(index,1);
+    }, function() {
+
+    });
+
+  }
+}
+
+function editWorkspace($http, $scope, $modalInstance, workspace) {
+  $scope.workspace = workspace;
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+
+  $scope.addItem = function(item) {
+    $scope.workspace.inventory.push(item);
+  }
+
+  $scope.removeItem = function(item) {
+    var index = $scope.workspace.inventory.indexOf(item);
+    $scope.workspace.inventory.splice(index, 1);
+  }
+}
+
+function deleteWorkspace($http, $scope, $modalInstance, workspace) {
+  $scope.workspace = workspace;
+
+  $scope.delete = function () {
+    $http.delete('api/workspaces/' + $scope.workspace._id).
+      success(function(data, status, headers, config) {
+        $modalInstance.close($scope.workspace);
+      }).error(function(data, status, headers, config) {
+        console.log("Could not delete workspace.")
+      })
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
 
 }
 

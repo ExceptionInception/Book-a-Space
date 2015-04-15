@@ -8,3 +8,7 @@ body {
     position: fixed;
     z-index:100;
 }
+
+#spacedBtn {
+	margin: 2px;
+}
