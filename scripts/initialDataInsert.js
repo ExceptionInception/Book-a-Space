@@ -1,5 +1,42 @@
 db = connect("localhost:27017/bookaspace");
 db.createCollection("workspaces");
+db.createCollection("reservations");
+
+db.reservations.insert({
+	workspaceID: "FP-7-WS-430-189A",
+	dateOf: new Date("04-15-2015"),
+	block: "AM",
+	reserverName: "John Doe",
+	reserverEmail: "jdoe@exmaple.com",
+	agency: "Dept of The Budget",
+	supervisorName: "Super Visor",
+	supervisorEmail: "supervisor@exmaple.com",
+	parkingToken: true,
+	status: "Pending",
+	parkingCost: 10,
+	glCode: "6351500",
+	sapFund: "00056778",
+	costCenter: "425454235",
+	budgetPeriod: "2015"
+});
+
+db.reservations.insert({
+	workspaceID: "FP-7-WS-470-11",
+	dateOf: new Date("04-18-2015"),
+	block: "PM",
+	reserverName: "George Michael",
+	reserverEmail: "gmichael@yahoo.com",
+	agency: "Firearms & Tobacco",
+	supervisorName: "Nikola Tesla",
+	supervisorEmail: "nt@yahoo.com",
+	parkingToken: true,
+	status: "Approved",
+	parkingCost: 10,
+	glCode: "6351500",
+	sapFund: "00242348",
+	costCenter: "423423454235",
+	budgetPeriod: "2015"
+});
 
 db.workspaces.insert({
 	_id: "FP-7-WS-430-189A",
@@ -13,8 +50,7 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -29,8 +65,7 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -45,8 +80,7 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -61,8 +95,7 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -77,8 +110,7 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -93,8 +125,7 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -109,8 +140,7 @@ db.workspaces.insert({
 	pmRate: 1.27,
 	weekly: 12.70,
 	monthly: 253.99,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -125,8 +155,7 @@ db.workspaces.insert({
 	pmRate: 1.27,
 	weekly: 12.70,
 	monthly: 253.99,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -141,8 +170,7 @@ db.workspaces.insert({
 	pmRate: 1.27,
 	weekly: 12.70,
 	monthly: 253.99,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -157,8 +185,7 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -173,8 +200,7 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -189,8 +215,7 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -205,8 +230,7 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -221,8 +245,7 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -237,8 +260,7 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -253,8 +275,7 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: [],
-	reservations: []
+	inventory: []
 });
 
 db.workspaces.insert({
@@ -273,8 +294,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-6647",
 	capacity: "50 to 75",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Smartboard", "Wireless Internet", "Poly Com", "PC"],
-	reservations: []
+	inventory: ["Smartboard", "Wireless Internet", "Poly Com", "PC"]
 });
 
 db.workspaces.insert({
@@ -293,8 +313,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-6648",
 	capacity: "50 has tables too",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Projector", "Wireless Internet", "PC"],
-	reservations: []
+	inventory: ["Projector", "Wireless Internet", "PC"]
 });
 
 db.workspaces.insert({
@@ -313,8 +332,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9172",
 	capacity: "8 to 10",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Projector", "Wireless Internet", "PC", "Poly Com"],
-	reservations: []
+	inventory: ["Projector", "Wireless Internet", "PC", "Poly Com"]
 });
 
 db.workspaces.insert({
@@ -333,8 +351,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9274",
 	capacity: "8 to 10",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Poly Com"],
-	reservations: []
+	inventory: ["Wireless Internet", "PC", "Poly Com"]
 });
 
 db.workspaces.insert({
@@ -353,8 +370,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9832",
 	capacity: "6",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC"],
-	reservations: []
+	inventory: ["Wireless Internet", "PC"]
 });
 
 db.workspaces.insert({
@@ -373,8 +389,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9175",
 	capacity: "16 to 18",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Poly Com", "Projector"],
-	reservations: []
+	inventory: ["Wireless Internet", "PC", "Poly Com", "Projector"]
 });
 
 db.workspaces.insert({
@@ -393,8 +408,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-6650",
 	capacity: "6",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC"],
-	reservations: []
+	inventory: ["Wireless Internet", "PC"]
 });
 
 db.workspaces.insert({
@@ -413,8 +427,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9241",
 	capacity: "12 to 14",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Poly Com"],
-	reservations: []
+	inventory: ["Wireless Internet", "PC", "Poly Com"]
 });
 
 db.workspaces.insert({
@@ -433,8 +446,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9214",
 	capacity: "12 to 14",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Poly Com"],
-	reservations: []
+	inventory: ["Wireless Internet", "PC", "Poly Com"]
 });
 
 db.workspaces.insert({
@@ -453,8 +465,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 525-5568",
 	capacity: "8 to 10",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Poly Com", "Projector"],
-	reservations: []
+	inventory: ["Wireless Internet", "PC", "Poly Com", "Projector"]
 });
 
 db.workspaces.insert({
@@ -473,8 +484,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-4132",
 	capacity: "6",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC"],
-	reservations: []
+	inventory: ["Wireless Internet", "PC"]
 });
 
 db.workspaces.insert({
@@ -492,8 +502,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-6652",
 	capacity: "16",
 	pointOfContact: "ra-eitt@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Projector"],
-	reservations: []
+	inventory: ["Wireless Internet", "PC", "Projector"]
 });
 
 db.workspaces.insert({
@@ -511,8 +520,7 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-6651",
 	capacity: "16",
 	pointOfContact: "ra-eitt@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Projector"],
-	reservations: []
+	inventory: ["Wireless Internet", "PC", "Projector"]
 });
 
 db.workspaces.insert({
@@ -530,6 +538,5 @@ db.workspaces.insert({
 	phoneNumber: "No Phone",
 	capacity: "16",
 	pointOfContact: "ra-eitt@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Projector"],
-	reservations: []
+	inventory: ["Wireless Internet", "PC", "Projector"]
 });
