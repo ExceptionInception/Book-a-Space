@@ -14,8 +14,8 @@ var ReservationSchema = new Mongoose.Schema({
 		parkingToken: Boolean,
 		status: String,
 		parkingCost: Number,
-		glCode: Number,
-		sapFund: Number,
+		glCode: String,
+		sapFund: String,
 		budgetPeriod: String,
 		costCenter: String
 });

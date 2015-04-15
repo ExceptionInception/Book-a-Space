@@ -4,7 +4,7 @@ db.createCollection("reservations");
 
 db.reservations.insert({
 	workspaceID: "FP-7-WS-430-189A",
-	dateOf: new Date("04-15-2015"),
+	dateOf: Date(),
 	block: "AM",
 	reserverName: "John Doe",
 	reserverEmail: "jdoe@exmaple.com",
@@ -22,7 +22,7 @@ db.reservations.insert({
 
 db.reservations.insert({
 	workspaceID: "FP-7-WS-470-11",
-	dateOf: new Date("04-18-2015"),
+	dateOf: Date(),
 	block: "PM",
 	reserverName: "George Michael",
 	reserverEmail: "gmichael@yahoo.com",
