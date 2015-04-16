@@ -30,6 +30,10 @@ exports.getWorkspaceByID = function(req, res, next) {
   });
 };
 
+exports.getWorkspacesByAvailability = function(req, res, next) {
+    // get reservations by date available
+};
+
 exports.createWorkspace = function(req, res, next) {
   Workspaces.create(req.body, function (err, workspace) {
     if (err) {

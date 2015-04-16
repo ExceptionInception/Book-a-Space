@@ -2,9 +2,14 @@ db = connect("localhost:27017/bookaspace");
 db.createCollection("workspaces");
 db.createCollection("reservations");
 
+var testDate = new Date(2015, 3, 16);
+
 db.reservations.insert({
 	workspaceID: "FP-7-WS-430-189A",
-	dateOf: Date(),
+	dateOf: testDate,
+	month: "04",
+	day: "10",
+	year: "2015",
 	block: "AM",
 	reserverName: "John Doe",
 	reserverEmail: "jdoe@exmaple.com",
@@ -20,9 +25,13 @@ db.reservations.insert({
 	budgetPeriod: "2015"
 });
 
+
 db.reservations.insert({
 	workspaceID: "FP-7-WS-470-11",
-	dateOf: Date(),
+	dateOf: testDate,
+	month: "04",
+	day: "10",
+	year: "2015",
 	block: "PM",
 	reserverName: "George Michael",
 	reserverEmail: "gmichael@yahoo.com",

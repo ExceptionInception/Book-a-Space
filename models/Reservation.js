@@ -5,7 +5,7 @@ var ReservationSchema = new Mongoose.Schema({
 		workspaceID: String,
 		creationDate: {type: Date, default: Date.now},
 		dateOf: {type: Date},
-		block: String,
+		month: String,
 		reserverName: String,
 		reserverEmail: String,
 		agency: String,
