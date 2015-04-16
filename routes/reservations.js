@@ -10,13 +10,16 @@ router.get('/:id', function(req, res, next) {
 	DBController.getReservation(req, res, next);
 })
 
-router.post('/', function(req, res, next) {
+router.post('/', function(req, res, next) {fg
 	DBController.createReservation(req, res, next);
+});
+
+router.put('/:id', function(req, res, next) {
+	DBController.updateReservation(req, res, next);
 });
 
 router.delete('/:id', function(req,res, next) {
 	DBController.removeReservation(req, res, next); 
 });
-
 
 module.exports = router;

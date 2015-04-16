@@ -48,6 +48,11 @@ angular.module('bookaspace', ['ngRoute', 'ui.bootstrap',
       controller: workspaceadminCtrl
     }).
 
+    when ('/reservationadmin', {
+      templateUrl: 'partials/reservationadmin',
+      controller: reservationadminCtrl
+    }).
+
     // Other pages.
     otherwise({
        redirectTo: '/'

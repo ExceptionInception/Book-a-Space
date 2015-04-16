@@ -201,8 +201,83 @@ function deleteWorkspace($http, $scope, $modalInstance, workspace) {
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
-
 }
 
+function reservationadminCtrl($scope, $http, $modal) {
 
+  $http.get('/api/reservations').
+    success(function(data, status, headers, config) {
+       $scope.reservations = data;
+    });
 
+  $scope.editReservation = function (reservation) {
+    var modalInstance = $modal.open({
+      templateUrl: 'partials/editReservation',
+      controller: 'editReservation',
+      resolve: {
+        reservation: function () {
+          return reservation;
+        }
+      }
+    })
+  }
+
+  $scope.removeReservation = function (reservation) {
+    var modalInstance = $modal.open({
+      templateUrl: 'partials/removeReservation',
+      controller: 'deleteReservation',
+      resolve: {
+        reservation: function () {
+          return reservation;
+        }
+      }
+    })
+  }
+}
+
+function editReservation($http, $scope, $modalInstance, reservation) {
+
+  $scope.reservation = {};
+  $scope.id = reservation._id;
+
+  $scope.reservation.user            = reservation.user;
+  $scope.reservation.userEmail       = reservation.userEmail;
+  $scope.reservation.supervisor      = reservation.supervisor;
+  $scope.reservation.supervisorEmail = reservation.supervisorEmail;
+  $scope.reservation.sapfund         = reservation.sapfund;
+  $scope.reservation.block           = reservation.block;
+  $scope.reservation.glCode          = reservation.glCode;
+  $scope.reservation.status          = reservation.status;
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+
+  $scope.submit = function() {
+    $http.put('/api/reservations/' + $scope.id, $scope.reservation).
+      success(function(data,status,headers, config) {
+        $modalInstance.close($scope.reservation);
+      }).error(function(date,status,headers,config) {
+        console.log("Could not edit reservation " + $scope.id);
+      })
+  };
+}
+
+function deleteReservation($http, $scope, $modalInstance, reservation) {
+
+  $scope.id = reservation._id;
+  $scope.reservation = reservation;
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+
+  $scope.remove = function() {
+    $http.delete('/api/reservations/' + $scope.id, $scope.reservation).
+      success(function(data,status,headers, config) {
+        $modalInstance.close($scope.reservation);
+      }).error(function(date,status,headers,config) {
+        console.log("Could not remove reservation " + $scope.id);
+      })
+  }
+}

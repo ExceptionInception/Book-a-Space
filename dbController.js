@@ -91,11 +91,24 @@ exports.getReservation = function(req, res, next) {
 }
 
 exports.removeReservation = function(req, res, next) {
-    Reservations.remove(req.params.id, function(err, reservation) {
+
+   var id = String(req.params.id);
+
+    Reservations.findByIdAndRemove(id, req.body, function(err, reservation) {
         if (err) {
             return next(err);
         } else {
             res.json(reservation);
         }
-    })
+    });
+};
+
+exports.updateReservation = function(req, res, next) {
+    Reservations.findByIdAndUpdate(req.params.id, req.body, function (err, reservation) {
+        if (err) {
+            return next(err);
+        } else {
+            res.json(reservation);
+        }
+    });
 };

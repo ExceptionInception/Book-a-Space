@@ -1,0 +1,147 @@
+div(class="panel panel-default")
+ div.panel-heading
+    h1.panel-title Filter & Sort
+  div.panel-body
+    div.row
+      div.col-sm-4
+        label Sort By:
+        select(class="form-control" ng-model="sortExpression")
+          option(value="") Any
+          option(value="date") Date 
+          option(value="issuer") Issuer          
+          option(value="amRate") AM Rate
+          option(value="pmRate") PM Rate
+          option(value="agency") Agency         
+          option(value="status") Status 
+       div.col-sm-4
+        label Status:
+        select(class="form-control" ng-model="query.status")
+          option(value="") Any
+          option(value="Approved") Approved
+          option(value="Denied") Denied
+          option(value="Pending") Pending          
+      div.col-sm-4
+        label Agency:
+        input(type="text" class="form-control" id="agency" ng-model="agency")        
+      div.col-sm-4
+        label Issuer:
+        input(type="text" class="form-control" id="issuer" ng-model="issuer")           
+      div.col-sm-4
+        label Start
+        input(type="date" class="form-control" id="startdate" ng-model="startdate")
+      div.col-sm-4
+        label End
+        input(type="date" class="form-control" id="startdate" ng-model="startdate")
+
+div(class="panel panel-default")
+  div.panel-heading
+    h1.panel-title Reservations
+  div.panel-body
+    accordion(close-others="false")
+      accordion-group(ng-repeat="reservation in reservations | orderBy: sortExpression | filter: query" is-open="status.open")
+        accordion-heading
+          | {{reservation.workspaceID}}
+          | <i class="pull-right glyphicon" 
+          |   ng-class="{'glyphicon-chevron-down': status.open, 
+          |   'glyphicon-chevron-right': !status.open}"></i>
+
+        div.row
+          div.col-sm-6
+            p 
+              | <u>General</u>
+              | <br>Status: {{reservation.status}}        
+              | <br>Agency: {{reservation.agency}}    
+              | <br>Creation date: {{reservation.creationDate|date}}    
+              | <br>Date of: {{reservation.dateOf|date}}
+              | <br>Block: {{reservation.block}}    
+
+          div.col-sm-6
+            p
+              | <u>Contact</u> 
+              | <br>Reserver: {{reservation.reserverName}}
+              | <br>Email:  {{reservation.reserverEmail}}
+              | <br>Supervisor: {{reservation.supervisorName}}
+              | <br>Email: {{reservation.supervisorEmail}}
+
+        div.row
+          div(class="col-sm-2 col-sm-offset-10")
+            p 
+              button(ng-click="editReservation(reservation)" type="button" class="btn btn-warning" id="spacedBtn") Edit
+              button(ng-click="removeReservation(reservation)" type="button" class="btn btn-danger" id="spacedBtn") Remove
+
+              script(type="text/ng-template" id="partials/editReservation")
+                div.modal-header
+                  h3.modal-title Edit
+                    button(type="button" ng-click="cancel()" class="btn-lg close pull-right" aria-label="Close")
+                      span(aria-hidden="false")&times;
+
+                div.modal-body
+                  form
+                    div.row
+                      div.col-sm-6
+                          label(for="id") ID:
+                          input(type="text" class="form-control" id="id" value="{{id}}" disabled)
+                      div.col-sm-6                          
+                          label(for="id") GL Code:
+                          input(type="text" class="form-control" id="glcode" value="{{reservation.glCode}}" disabled)
+                    br
+                    div.row
+                      div.col-sm-3
+
+                          label(for="user") Reserver
+                          input(type="text" class="form-control" id="user" value="{{reservation.reserverName}}")         
+
+                      div.col-sm-3
+
+                          label(for="user") Email
+                          input(type="text" class="form-control" id="userEmail" value="{{reservation.reserverEmail}}")                     
+
+                      div.col-sm-3
+
+                          label(for="supervisor") Supervisor
+                          input(type="text" class="form-control" id="supervisor" value="{{reservation.supervisorName}}")
+
+                      div.col-sm-3
+
+                          label(for="user") Email
+                          input(type="text" class="form-control" id="supervisorEmail" value="{{reservation.supervisorEmail}}")  
+                    br
+                    div.row
+                      div.col-sm-6
+                          label(for="id") SAP Fund:
+                          input(type="text" class="form-control" id="sapfund" value="{{reservation.sapFund}}")       
+
+                      div.col-sm-6
+                        div.form-group
+                          label(for="status") Status:
+                          select(id="status" class="form-control" ng-model="reservation.status")
+                            option(value="" disabled selected) {{reservation.status}}
+                            option(value="Approved") Approved
+                            option(value="reject") Reject
+                            option(value="pending") Pending
+
+                    div.row
+                         i 
+                           p
+                           | In order to maintain system integrity and avoid conflicts, 
+                           | modifying dates and reservation information are not allowed.
+                           | Administrators should remove the reservation
+                           | and reserve a new workspace.
+
+                div.modal-footer
+                  button(ng-click="submit()" type="button" class="btn btn-primary") Submit
+                  button(ng-click="cancel()" type="button" class="btn btn-danger") Cancel
+
+              script(type="text/ng-template" id="partials/removeReservation")
+                div.modal-header
+                  h3.modal-title Are you sure?
+                    button(type="button" ng-click="cancel()" class="btn-lg close pull-right" aria-label="Close")
+                      span(aria-hidden="false")&times;
+
+                div.modal-body
+                  p Really delete {{id}} ?
+
+                div.modal-footer
+                  button(ng-click="remove()" type="button" class="btn btn-danger") Remove
+                  button(ng-click="cancel()" type="button" class="btn btn-warning") Cancel
+
