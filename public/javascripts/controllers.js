@@ -210,10 +210,11 @@ function reservationadminCtrl($scope, $http, $modal) {
        $scope.reservations = data;
     });
 
-  $scope.editReservation = function (reservation) {
+  $scope.editReservation = function (size,reservation) {
     var modalInstance = $modal.open({
       templateUrl: 'partials/editReservation',
       controller: 'editReservation',
+      size: size,
       resolve: {
         reservation: function () {
           return reservation;

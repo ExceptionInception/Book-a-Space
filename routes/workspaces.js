@@ -13,7 +13,7 @@ router.get('/:id', function(req, res, next) {
 	DBController.getWorkspaceByID(req, res, next);
 });
 
-router.get('/available' function(req, res, next) {
+router.get('/available', function(req, res, next) {
 	DBController.getWorkspacesByAvailability(req, res, next);
 });
 

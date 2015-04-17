@@ -4,34 +4,39 @@ div(class="panel panel-default")
   div.panel-body
     div.row
       div.col-sm-4
-        label Sort By:
-        select(class="form-control" ng-model="sortExpression")
-          option(value="") Any
-          option(value="date") Date 
-          option(value="issuer") Issuer          
-          option(value="amRate") AM Rate
-          option(value="pmRate") PM Rate
-          option(value="agency") Agency         
-          option(value="status") Status 
-       div.col-sm-4
-        label Status:
-        select(class="form-control" ng-model="query.status")
-          option(value="") Any
-          option(value="Approved") Approved
-          option(value="Denied") Denied
-          option(value="Pending") Pending          
+        div.form-group
+          label(for="sortby") Sort By:
+          select(class="form-control" ng-model="sortExpression" id="sortby")
+            option(value="") Any
+            option(value="date") Date 
+            option(value="issuer") Issuer          
+            option(value="amRate") AM Rate
+            option(value="pmRate") PM Rate
+            option(value="agency") Agency         
+            option(value="status") Status 
       div.col-sm-4
-        label Agency:
-        input(type="text" class="form-control" id="agency" ng-model="agency")        
+        div.form-group
+          label(for="status") Status:
+          select(class="form-control" ng-model="query.status" id="status")
+            option(value="") Any
+            option(value="Approved") Approved
+            option(value="Denied") Denied
+            option(value="Pending") Pending          
       div.col-sm-4
-        label Issuer:
-        input(type="text" class="form-control" id="issuer" ng-model="issuer")           
-      div.col-sm-4
-        label Start
-        input(type="date" class="form-control" id="startdate" ng-model="startdate")
-      div.col-sm-4
-        label End
-        input(type="date" class="form-control" id="startdate" ng-model="startdate")
+        div.form-group
+          label(for="agency") Agency:
+          input(type="text" class="form-control" id="agency" ng-model="agency")   
+    div.row
+      div.form-group     
+        div.col-sm-4
+          label(for="issuer") Issuer:
+          input(type="text" class="form-control" id="issuer" ng-model="issuer")           
+        div.col-sm-4
+          label(for="startdate") Start
+          input(type="date" class="form-control" id="startdate" ng-model="startdate")
+        div.col-sm-4
+          label(for="enddate") End
+          input(type="date" class="form-control" id="startdate" ng-model="enddate")
 
 div(class="panel panel-default")
   div.panel-heading
@@ -66,8 +71,8 @@ div(class="panel panel-default")
         div.row
           div(class="col-sm-2 col-sm-offset-10")
             p 
-              button(ng-click="editReservation(reservation)" type="button" class="btn btn-warning" id="spacedBtn") Edit
-              button(ng-click="removeReservation(reservation)" type="button" class="btn btn-danger" id="spacedBtn") Remove
+              button(ng-click="editReservation('lg',reservation)" type="button" class="btn btn-warning" id="spacedBtn") Edit
+              button(ng-click="removeReservation('lg',reservation)" type="button" class="btn btn-danger" id="spacedBtn") Remove
 
               script(type="text/ng-template" id="partials/editReservation")
                 div.modal-header
@@ -79,35 +84,39 @@ div(class="panel panel-default")
                   form
                     div.row
                       div.col-sm-6
+                        div.form-group
                           label(for="id") ID:
                           input(type="text" class="form-control" id="id" value="{{id}}" disabled)
-                      div.col-sm-6                          
-                          label(for="id") GL Code:
-                          input(type="text" class="form-control" id="glcode" value="{{reservation.glCode}}" disabled)
-                    br
-                    div.row
-                      div.col-sm-3
+                      div.col-sm-6
+                        div.form-group
+                            label(for="id") GL Code:
+                            input(type="text" class="form-control" id="glcode" value="{{reservation.glCode}}" disabled)
 
-                          label(for="user") Reserver
-                          input(type="text" class="form-control" id="user" value="{{reservation.reserverName}}")         
-
-                      div.col-sm-3
-
-                          label(for="user") Email
-                          input(type="text" class="form-control" id="userEmail" value="{{reservation.reserverEmail}}")                     
-
-                      div.col-sm-3
-
-                          label(for="supervisor") Supervisor
-                          input(type="text" class="form-control" id="supervisor" value="{{reservation.supervisorName}}")
-
-                      div.col-sm-3
-
-                          label(for="user") Email
-                          input(type="text" class="form-control" id="supervisorEmail" value="{{reservation.supervisorEmail}}")  
-                    br
                     div.row
                       div.col-sm-6
+                        div.form-group
+                          label(for="user") Reserver Name
+                          input(type="text" class="form-control" id="user" value="{{reservation.reserverName}}")         
+
+                      div.col-sm-6
+                        div.form-group
+                          label(for="user") Reserver Email
+                          input(type="text" class="form-control" id="userEmail" value="{{reservation.reserverEmail}}")                     
+
+                    div.row
+                      div.col-sm-6
+                        div.form-group
+                          label(for="supervisor") Supervisor Name
+                          input(type="text" class="form-control" id="supervisor" value="{{reservation.supervisorName}}")
+
+                      div.col-sm-6
+                        div.form-group
+                          label(for="user") Supervisor Email
+                          input(type="text" class="form-control" id="supervisorEmail" value="{{reservation.supervisorEmail}}")
+
+                    div.row
+                      div.col-sm-6
+                        div.form-group
                           label(for="id") SAP Fund:
                           input(type="text" class="form-control" id="sapfund" value="{{reservation.sapFund}}")       
 
@@ -121,6 +130,7 @@ div(class="panel panel-default")
                             option(value="pending") Pending
 
                     div.row
+                      div.col-sm-12
                          i 
                            p
                            | In order to maintain system integrity and avoid conflicts, 
