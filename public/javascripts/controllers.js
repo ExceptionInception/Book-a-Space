@@ -241,14 +241,14 @@ function editReservation($http, $scope, $modalInstance, reservation) {
   $scope.reservation = {};
   $scope.id = reservation._id;
 
-  $scope.reservation.user            = reservation.user;
-  $scope.reservation.userEmail       = reservation.userEmail;
-  $scope.reservation.supervisor      = reservation.supervisor;
+  $scope.reservation.reserverName = reservation.reserverName;
+  $scope.reservation.reserverEmail = reservation.reserverEmail;
+  $scope.reservation.supervisorName = reservation.supervisorName;
   $scope.reservation.supervisorEmail = reservation.supervisorEmail;
-  $scope.reservation.sapfund         = reservation.sapfund;
-  $scope.reservation.block           = reservation.block;
-  $scope.reservation.glCode          = reservation.glCode;
-  $scope.reservation.status          = reservation.status;
+  $scope.reservation.sapFund = reservation.sapFund;
+  $scope.reservation.block = reservation.block;
+  $scope.reservation.glCode = reservation.glCode;
+  $scope.reservation.status = reservation.status;
 
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
@@ -274,9 +274,9 @@ function deleteReservation($http, $scope, $modalInstance, reservation) {
   };
 
   $scope.remove = function() {
-    $http.delete('/api/reservations/' + $scope.id, $scope.reservation).
+    $http.delete('/api/reservations/' + $scope.id).
       success(function(data,status,headers, config) {
-        $modalInstance.close($scope.reservation);
+        $modalInstance.close();
       }).error(function(date,status,headers,config) {
         console.log("Could not remove reservation " + $scope.id);
       })

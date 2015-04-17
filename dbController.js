@@ -1,6 +1,7 @@
 var Mongoose = require('mongoose');
 var Workspaces = require('./models/Workspace.js');
 var Reservations = require('./models/Reservation.js');
+var ObjectId = require('mongoose').Types.ObjectId; 
 
 Mongoose.connect('mongodb://localhost/bookaspace', function(err) {
     if(err) {
@@ -95,13 +96,11 @@ exports.getReservation = function(req, res, next) {
 }
 
 exports.removeReservation = function(req, res, next) {
-
-   var id = String(req.params.id);
-
-    Reservations.findByIdAndRemove(id, req.body, function(err, reservation) {
+    Reservations.findByIdAndRemove(req.params.id, function(err, reservation) {
         if (err) {
             return next(err);
         } else {
+            console.log(reservation);
             res.json(reservation);
         }
     });
@@ -110,6 +109,7 @@ exports.removeReservation = function(req, res, next) {
 exports.updateReservation = function(req, res, next) {
     Reservations.findByIdAndUpdate(req.params.id, req.body, function (err, reservation) {
         if (err) {
+            console.log(err);
             return next(err);
         } else {
             res.json(reservation);

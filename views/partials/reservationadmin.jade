@@ -52,27 +52,52 @@ div(class="panel panel-default")
 
         div.row
           div.col-sm-6
-            p 
-              | <u>General</u>
-              | <br>Status: {{reservation.status}}        
-              | <br>Agency: {{reservation.agency}}    
-              | <br>Creation date: {{reservation.creationDate|date}}    
-              | <br>Date of: {{reservation.dateOf|date}}
-              | <br>Block: {{reservation.block}}    
+            div.list-group
+              a.list-group-item
+                h4.list-group-item-heading <strong>Status</strong>
+                p.list-group-item-text {{reservation.status}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Agency</strong>
+                p.list-group-item-text {{reservation.agency}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Creation Date</strong>
+                p.list-group-item-text {{reservation.creationDate | date}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Date Of</strong>
+                p.list-group-item-text {{reservation.dateOf | date}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Block</strong>
+                p.list-group-item-text {{reservation.block}}
+
+
 
           div.col-sm-6
-            p
-              | <u>Contact</u> 
-              | <br>Reserver: {{reservation.reserverName}}
-              | <br>Email:  {{reservation.reserverEmail}}
-              | <br>Supervisor: {{reservation.supervisorName}}
-              | <br>Email: {{reservation.supervisorEmail}}
+            div.list-group
+              a.list-group-item
+                h4.list-group-item-heading <strong>Reserver</strong>
+                p.list-group-item-text {{reservation.reserverName}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Reserver Email</strong>
+                p.list-group-item-text {{reservation.reserverEmail}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Supervisor</strong>
+                p.list-group-item-text {{reservation.supervisorName}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Supervisor Email</strong>
+                p.list-group-item-text {{reservation.supervisorEmail}}
 
         div.row
           div(class="col-sm-2 col-sm-offset-10")
             p 
               button(ng-click="editReservation('lg',reservation)" type="button" class="btn btn-warning" id="spacedBtn") Edit
-              button(ng-click="removeReservation('lg',reservation)" type="button" class="btn btn-danger" id="spacedBtn") Remove
+              button(ng-click="removeReservation(reservation)" type="button" class="btn btn-danger" id="spacedBtn") Remove
 
               script(type="text/ng-template" id="partials/editReservation")
                 div.modal-header
@@ -86,39 +111,39 @@ div(class="panel panel-default")
                       div.col-sm-6
                         div.form-group
                           label(for="id") ID:
-                          input(type="text" class="form-control" id="id" value="{{id}}" disabled)
+                          input(type="text" class="form-control" id="id" ng-model="id" disabled)
                       div.col-sm-6
                         div.form-group
                             label(for="id") GL Code:
-                            input(type="text" class="form-control" id="glcode" value="{{reservation.glCode}}" disabled)
+                            input(type="text" class="form-control" id="glcode" ng-model="reservation.glCode" disabled)
 
                     div.row
                       div.col-sm-6
                         div.form-group
                           label(for="user") Reserver Name
-                          input(type="text" class="form-control" id="user" value="{{reservation.reserverName}}")         
+                          input(type="text" class="form-control" id="user" ng-model="reservation.reserverName")  
 
                       div.col-sm-6
                         div.form-group
                           label(for="user") Reserver Email
-                          input(type="text" class="form-control" id="userEmail" value="{{reservation.reserverEmail}}")                     
+                          input(type="text" class="form-control" id="userEmail" ng-model="reservation.reserverEmail")                     
 
                     div.row
                       div.col-sm-6
                         div.form-group
                           label(for="supervisor") Supervisor Name
-                          input(type="text" class="form-control" id="supervisor" value="{{reservation.supervisorName}}")
+                          input(type="text" class="form-control" id="supervisor" ng-model="reservation.supervisorName")
 
                       div.col-sm-6
                         div.form-group
                           label(for="user") Supervisor Email
-                          input(type="text" class="form-control" id="supervisorEmail" value="{{reservation.supervisorEmail}}")
+                          input(type="text" class="form-control" id="supervisorEmail" ng-model="reservation.supervisorEmail")
 
                     div.row
                       div.col-sm-6
                         div.form-group
                           label(for="id") SAP Fund:
-                          input(type="text" class="form-control" id="sapfund" value="{{reservation.sapFund}}")       
+                          input(type="text" class="form-control" id="sapfund" ng-model="reservation.sapFund")       
 
                       div.col-sm-6
                         div.form-group

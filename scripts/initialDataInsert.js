@@ -5,6 +5,7 @@ db.createCollection("reservations");
 var testDate = new Date(2015, 3, 16);
 
 db.reservations.insert({
+	_id:"04102015AM",
 	workspaceID: "FP-7-WS-430-189A",
 	dateOf: testDate,
 	month: "04",
@@ -27,6 +28,7 @@ db.reservations.insert({
 
 
 db.reservations.insert({
+	_id:"04102015PM",
 	workspaceID: "FP-7-WS-470-11",
 	dateOf: testDate,
 	month: "04",
