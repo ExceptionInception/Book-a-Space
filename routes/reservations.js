@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
 	DBController.getReservation(req, res, next);
-})
+});
 
 router.post('/', function(req, res, next) {fg
 	DBController.createReservation(req, res, next);

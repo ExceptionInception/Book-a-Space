@@ -2,7 +2,7 @@ db = connect("localhost:27017/bookaspace");
 db.createCollection("workspaces");
 db.createCollection("reservations");
 
-var testDate = new Date(2015, 3, 16);
+var testDate = new Date(2015, 3, 27);
 
 db.reservations.insert({
 	_id:"04102015AM",
@@ -61,7 +61,8 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -76,7 +77,8 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -91,7 +93,8 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -106,7 +109,8 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -121,7 +125,8 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015PM', date: testDate, block: 'PM'}],
 });
 
 db.workspaces.insert({
@@ -136,7 +141,8 @@ db.workspaces.insert({
 	pmRate: 2.58,
 	weekly: 25.84,
 	monthly: 516.73,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -151,7 +157,8 @@ db.workspaces.insert({
 	pmRate: 1.27,
 	weekly: 12.70,
 	monthly: 253.99,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -166,7 +173,8 @@ db.workspaces.insert({
 	pmRate: 1.27,
 	weekly: 12.70,
 	monthly: 253.99,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -181,7 +189,8 @@ db.workspaces.insert({
 	pmRate: 1.27,
 	weekly: 12.70,
 	monthly: 253.99,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -196,7 +205,8 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -211,7 +221,8 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -226,7 +237,8 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -241,7 +253,8 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -256,7 +269,8 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -271,7 +285,8 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -286,7 +301,8 @@ db.workspaces.insert({
 	pmRate: 1.90,
 	weekly: 19.05,
 	monthly: 380.98,
-	inventory: []
+	inventory: [],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -305,7 +321,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-6647",
 	capacity: "50 to 75",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Smartboard", "Wireless Internet", "Poly Com", "PC"]
+	inventory: ["Smartboard", "Wireless Internet", "Poly Com", "PC"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -324,7 +341,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-6648",
 	capacity: "50 has tables too",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Projector", "Wireless Internet", "PC"]
+	inventory: ["Projector", "Wireless Internet", "PC"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -343,7 +361,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9172",
 	capacity: "8 to 10",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Projector", "Wireless Internet", "PC", "Poly Com"]
+	inventory: ["Projector", "Wireless Internet", "PC", "Poly Com"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -362,7 +381,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9274",
 	capacity: "8 to 10",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Poly Com"]
+	inventory: ["Wireless Internet", "PC", "Poly Com"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -381,7 +401,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9832",
 	capacity: "6",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC"]
+	inventory: ["Wireless Internet", "PC"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -400,7 +421,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9175",
 	capacity: "16 to 18",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Poly Com", "Projector"]
+	inventory: ["Wireless Internet", "PC", "Poly Com", "Projector"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -419,7 +441,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-6650",
 	capacity: "6",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC"]
+	inventory: ["Wireless Internet", "PC"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -438,7 +461,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9241",
 	capacity: "12 to 14",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Poly Com"]
+	inventory: ["Wireless Internet", "PC", "Poly Com"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -457,7 +481,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 705-9214",
 	capacity: "12 to 14",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Poly Com"]
+	inventory: ["Wireless Internet", "PC", "Poly Com"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -476,7 +501,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 525-5568",
 	capacity: "8 to 10",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Poly Com", "Projector"]
+	inventory: ["Wireless Internet", "PC", "Poly Com", "Projector"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -495,7 +521,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-4132",
 	capacity: "6",
 	pointOfContact: "JoJerome@pa.gov",
-	inventory: ["Wireless Internet", "PC"]
+	inventory: ["Wireless Internet", "PC"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -513,7 +540,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-6652",
 	capacity: "16",
 	pointOfContact: "ra-eitt@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Projector"]
+	inventory: ["Wireless Internet", "PC", "Projector"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({
@@ -531,7 +559,8 @@ db.workspaces.insert({
 	phoneNumber: "(717) 214-6651",
 	capacity: "16",
 	pointOfContact: "ra-eitt@pa.gov",
-	inventory: ["Wireless Internet", "PC", "Projector"]
+	inventory: ["Wireless Internet", "PC", "Projector"],
+	bookedOn: [{reservation: '04102015AM', date: testDate, block: 'AM'}]
 });
 
 db.workspaces.insert({

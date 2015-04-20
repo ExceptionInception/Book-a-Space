@@ -32,7 +32,28 @@ exports.getWorkspaceByID = function(req, res, next) {
 };
 
 exports.getWorkspacesByAvailability = function(req, res, next) {
-    // get reservations by date available
+    var searchDate = new Date(req.query.year, req.query.month, req.query.day);
+    searchDate.setHours(0);
+    searchDate.setMinutes(0);
+    searchDate.setSeconds(0);
+
+    var query = 
+
+    Workspaces.find(
+        { $or: [
+            {'bookedOn.date': {$ne: searchDate} }, 
+            {'bookedOn.block': {$ne: req.query.block}}
+            ]
+        }, 
+        function (err, spaces) {
+            if(err) {
+                console.log(err);
+                return next(err);
+            } else {
+                res.json(spaces);
+            }
+    } );
+
 };
 
 exports.createWorkspace = function(req, res, next) {

@@ -1,16 +1,5 @@
 'use strict';
 
-//https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml#Internet_Explorer_s_Conditional_Comments
-
-//http://www.mircozeiss.com/how-to-pass-javascript-variables-from-a-server-to-angular/
-
-//https://github.com/fdietz/recipes-with-angular-js-examples/blob/master/chapter10/recipe1/contacts/views/layout.jade
-
-// Issues GET commands to get data from dbase.
-// These are page-wide ctrls, but specific HTML
-// tags can have specific controllers. Calls Root
-// app.js.
-
 function testCtrl($scope, $http) {
 
   $http.get('/api/workspaces').
@@ -20,21 +9,22 @@ function testCtrl($scope, $http) {
     });
 }
 
-function findaspaceCtrl($scope, $http) {
+function findaspaceCtrl($scope, $http, BookingService, $location) {
 
-}
+  $scope.findSpaces = function() {
+    BookingService.setDate($scope.dt);
+    BookingService.setBlock($scope.block);
+    $location.url('/workspaceresults');
 
-function WorkspaceTypeButtonsCtrl ($scope) {
+  };
 
   $scope.checkModel = {
     conferenceRm: false,
     office: false,
     cubicle: false
-  }
-}
+  };
 
-function DatePickerCtrl ($scope) {
-    $scope.today = function() {
+  $scope.today = function() {
     $scope.dt = new Date();
   };
 
@@ -67,11 +57,16 @@ function DatePickerCtrl ($scope) {
   };
 
   $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-  $scope.format = $scope.formats[0]
+  $scope.format = $scope.formats[0];
+
 }
 
 function workspaceResultsCtrl($scope, $http, $window, BookingService) {
-    $http.get('/api/workspaces').
+    var date = BookingService.getDate();
+    var block = BookingService.getBlock();
+
+    $http.get('/api/workspaces/available?' + 'day=' + date.getDate() + '&month=' + date.getMonth()
+      + '&year=' + date.getFullYear() + '&block=' + block).
     success(function(data, status, headers, config) {
        $scope.workspaces = data;
     });
@@ -82,7 +77,7 @@ function workspaceResultsCtrl($scope, $http, $window, BookingService) {
 }
 
 function bookingformCtrl($scope, $http, BookingService) {
-  $scope.test = BookingService.exampleValue;
+
   function loadspace() {
     $scope.workspace = BookingService.getSpace();
   }
@@ -220,7 +215,20 @@ function reservationadminCtrl($scope, $http, $modal) {
           return reservation;
         }
       }
-    })
+    });
+
+    modalInstance.result.then(function (editedReservation) {
+      reservation.reserverName = editedReservation.reserverName;
+      reservation.reserverEmail = editedReservation.reserverEmail;
+      reservation.supervisorName = editedReservation.supervisorName;
+      reservation.supervisorEmail = editedReservation.supervisorEmail;
+      reservation.sapFund = editedReservation.sapFund;
+      reservation.status = editedReservation.status;
+    }, function() {
+
+    });
+
+
   }
 
   $scope.removeReservation = function (reservation) {
