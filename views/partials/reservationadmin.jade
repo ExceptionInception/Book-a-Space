@@ -124,9 +124,11 @@ div(class="panel panel-default")
                           input(type="text" class="form-control" id="user" ng-model="reservation.reserverName")  
 
                       div.col-sm-6
+                        label(for="user") Reserver Email
                         div.form-group
-                          label(for="user") Reserver Email
-                          input(type="text" class="form-control" id="userEmail" ng-model="reservation.reserverEmail")                     
+                          div.input-group
+                            span.input-group-addon @
+                            input(type="text" class="form-control" id="userEmail" ng-model="reservation.reserverEmail")                     
 
                     div.row
                       div.col-sm-6
@@ -135,9 +137,11 @@ div(class="panel panel-default")
                           input(type="text" class="form-control" id="supervisor" ng-model="reservation.supervisorName")
 
                       div.col-sm-6
+                        label(for="user") Supervisor Email
                         div.form-group
-                          label(for="user") Supervisor Email
-                          input(type="text" class="form-control" id="supervisorEmail" ng-model="reservation.supervisorEmail")
+                          div.input-group
+                            span.input-group-addon @
+                            input(type="text" class="form-control" id="supervisorEmail" ng-model="reservation.supervisorEmail")
 
                     div.row
                       div.col-sm-6

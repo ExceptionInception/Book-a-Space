@@ -140,14 +140,18 @@ div(class="panel panel-default")
 
                     div.row
                       div.col-sm-3
+                        label(for="amRate") AM Rate:
                         div.form-group
-                          label(for="amRate") AM Rate:
-                          input(type="number" class="form-control" id="amRate" ng-model="workspace.amRate" step="0.01" size="6")
+                          div.input-group
+                            span.input-group-addon $
+                            input(type="number" class="form-control" id="amRate" ng-model="workspace.amRate" step="0.01" size="6")
 
                       div.col-sm-3
+                        label(for="pmRate") PM Rate:
                         div.form-group
-                          label(for="pmRate") PM Rate:
-                          input(type="number" class="form-control" id="pmRate" ng-model="workspace.pmRate" step="0.01" size="6")
+                          div.input-group
+                            span.input-group-addon $
+                            input(type="number" class="form-control" id="pmRate" ng-model="workspace.pmRate" step="0.01" size="6")
 
                     div.row
                       div.col-sm-6

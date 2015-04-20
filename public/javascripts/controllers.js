@@ -11,6 +11,8 @@ function testCtrl($scope, $http) {
 
 function findaspaceCtrl($scope, $http, BookingService, $location) {
 
+  $scope.block = 'AM';
+
   $scope.findSpaces = function() {
     BookingService.setDate($scope.dt);
     BookingService.setBlock($scope.block);

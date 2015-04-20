@@ -38,21 +38,19 @@ exports.getWorkspacesByAvailability = function(req, res, next) {
     searchDate.setSeconds(0);
 
     var query = 
-
-    Workspaces.find(
-        { $or: [
-            {'bookedOn.date': {$ne: searchDate} }, 
-            {'bookedOn.block': {$ne: req.query.block}}
-            ]
-        }, 
-        function (err, spaces) {
-            if(err) {
-                console.log(err);
-                return next(err);
-            } else {
-                res.json(spaces);
-            }
-    } );
+        Workspaces.find(
+            { $or: [
+                {'bookedOn.date': {$ne: searchDate} }, 
+                {'bookedOn.block': {$ne: req.query.block}}
+                ]
+            }, 
+            function (err, spaces) {
+                if(err) {
+                    return next(err);
+                } else {
+                    res.json(spaces);
+                }
+        });
 
 };
 
