@@ -1,12 +1,12 @@
-div.row
+div.row(ng-controller='loginCtrl2')
   div(class="col-md-6 col-md-offset-3")
     div(class="panel panel-default")
       div(class="panel-body")
-        form
+        form(ng-submit="login(credentials)")
           div.form-group
             label(for="username") User ID:
-            input(type="text" class="form-control" id="username" placeholder="User ID")
+            input(type="text" class="form-control" id="username" placeholder="User ID" ng-model="credentials.username")
           div.form-group
             label(for="password") Password:
-            input(type="password" class="form-control" id="password" placeholder="Password")
+            input(type="password" class="form-control" id="password" placeholder="Password" ng-model="credentials.password")
           button(type="submit" class="btn btn-primary pull-right") Login

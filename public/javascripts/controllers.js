@@ -9,6 +9,28 @@ function testCtrl($scope, $http) {
     });
 }
 
+function appctrl($scope, $http) {
+
+  $scope.currentUser = 'DefaultUser';
+
+  $scope.setCurrentUser = function ($user) {
+     if ($user=='')
+        $scope.currentUser='DefaultUser';
+     else
+        $scope.currentUser = $user;
+  }
+
+  $scope.getCurrentUser = function () {
+      return $scope.currentUser;
+  }
+
+  $scope.activeSession = function () {
+      if ($scope.currentUser == "DefaultUser")
+         return true;
+      return false;
+  }
+}
+
 function findaspaceCtrl($scope, $http, BookingService, $location) {
 
   $scope.block = 'AM';
@@ -60,7 +82,6 @@ function findaspaceCtrl($scope, $http, BookingService, $location) {
 
   $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
   $scope.format = $scope.formats[0];
-
 }
 
 function workspaceResultsCtrl($scope, $http, $window, BookingService) {
@@ -87,8 +108,41 @@ function bookingformCtrl($scope, $http, BookingService) {
   loadspace();
 }
 
-function loginCtrl($scope, $http) {
-  
+function loginCtrl($scope, $http, $location) {
+
+   $scope.credentials = {
+      username: '',
+      password: ''
+   };
+
+   $scope.location = $location;
+
+   $scope.userMenu = true;
+
+   $scope.loginState = "Login";
+
+   $scope.login = function(credentials) {
+      $scope.setCurrentUser (credentials.username);
+   }
+
+   $scope.activeLogin = function() {
+      $scope.loginState = 'Login';
+      $scope.userMenu = true;
+      $scope.location.url('/');
+   }
+
+   $scope.$on('onActiveLogin', function(event, username, password) {
+      $scope.setCurrentUser (username);
+      $scope.loginState = 'Logout';
+      $scope.userMenu = false;
+      $scope.location.url('/');
+   });
+}
+
+function loginCtrl2($scope, $http, $location) {
+   $scope.login = function(credentials) {
+      $scope.$emit('onActiveLogin', credentials.username, credentials.password);
+   }
 }
 
 function workspaceadminCtrl($scope, $http, $modal) {

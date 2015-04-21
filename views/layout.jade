@@ -18,9 +18,8 @@ html(ng-app="bookaspace")
     link(rel='stylesheet', href='javascripts/vendor/bootstrap-css/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-
-  body
-    div.container
+  body(ng-controller="appctrl")
+    div.container(ng-controller="loginCtrl")
       nav(class="navbar navbar-default navbar-fixed-top")
           div.navbar-header
             button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
@@ -32,11 +31,15 @@ html(ng-app="bookaspace")
 
           div(id="navbar" class="navbar-collapse collapse")
             ul(class="nav navbar-nav")
+              li(ng-hide="userMenu")
+                a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" disbled) {{currentUser}}
+                  span.caret
+                ul(class="dropdown-menu" role="menu")
+                  li 
+                    a(href="/myreservations") My Reservations
               li
                 a(href="/findaspace") Find a Space 
-              li
-                a(href="/myreservations") My Reservations
-              li(class="dropdown")
+              li(class="dropdown" ng-hide="userMenu")
                 a(class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" disbled) Administration 
                   span.caret
                 ul(class="dropdown-menu" role="menu")
@@ -44,7 +47,9 @@ html(ng-app="bookaspace")
                     a(href="/workspaceadmin") Workspaces
                   li 
                     a(href="/reservationadmin") Reservations
-            ul(class="nav navbar-nav navbar-right") 
+            ul(class="nav navbar-nav navbar-right")
+              li
+                a(href="/login" id="layout_login" ng-click='activeLogin()' ) {{loginState}}
               li
                 a(href="/policy") Policies & Conditions
 
