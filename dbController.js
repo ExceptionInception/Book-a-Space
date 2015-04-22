@@ -86,9 +86,9 @@ exports.removeWorkspace = function(req, res, next) {
 
 exports.createReservation = function(req, res, next) {
     var booking = {
-        reservation: req.body._id,
-        block: req.body.block,
-        date: req.body.dateOf
+        'reservation': req.body._id,
+        'block': req.body.block,
+        'date': req.body.dateOf
     };
 
     console.log(booking);
@@ -98,14 +98,16 @@ exports.createReservation = function(req, res, next) {
         if(err) {
             return next(err);
         } else {
-            Workspaces.findOneAndUpdate({_id: req.body.workspaceID}, {$push: {bookedOn: booking}}, 
-            function(err, data) {
-                if (err) {
-                    return next(err);
-                }
-            });
-
-            res.json(reservation);
+            Workspaces.findOneAndUpdate(
+                {_id: req.body.workspaceID},
+                {$push: {bookedOn: booking}},
+                   function(err, data) {
+                      if (err) {
+                         return next(err);
+                      }
+                      res.json(reservation);
+                   }
+            );
         }
     });
 };

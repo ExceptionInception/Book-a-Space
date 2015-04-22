@@ -365,11 +365,12 @@ function deleteReservation($http, $scope, $modalInstance, reservation) {
   }
 }
 
-function confirmReservationCtrl($http, $scope, BookingService) {
+function confirmReservationCtrl($http, $scope, BookingService, $location) {
   $scope.workspace = BookingService.getSpace();
   $scope.reservation = BookingService.getReservationInfo();
 
   $scope.placeOrder = function() {
     BookingService.placeOrder();
+    $location.url('/receipt');
   };
 }

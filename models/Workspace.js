@@ -12,7 +12,14 @@ var WorkspaceSchema = new Mongoose.Schema({
 	pmRate: Number,
 	weekly: Number,
 	monthly: Number,
-	inventory: Array
+	inventory: Array,
+	bookedOn: [
+		{
+			reservation: String,
+			date: Date,
+			block: String
+		}
+	]
 	});
 
 module.exports = Mongoose.model('Workspace', WorkspaceSchema);
