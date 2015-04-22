@@ -53,6 +53,11 @@ angular.module('bookaspace', ['ngRoute', 'ui.bootstrap',
       controller: reservationadminCtrl
     }).
 
+    when ('/confirmreservation' , {
+      templateUrl: 'partials/confirmreservation',
+      controller: confirmReservationCtrl
+    }).
+
     // Other pages.
     otherwise({
        redirectTo: '/'

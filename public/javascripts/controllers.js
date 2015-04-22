@@ -34,18 +34,14 @@ function appctrl($scope, $http) {
 function findaspaceCtrl($scope, $http, BookingService, $location) {
 
   $scope.block = 'AM';
+  $scope.type = "Cubicle";
 
   $scope.findSpaces = function() {
     BookingService.setDate($scope.dt);
     BookingService.setBlock($scope.block);
+    BookingService.setType($scope.type);
     $location.url('/workspaceresults');
 
-  };
-
-  $scope.checkModel = {
-    conferenceRm: false,
-    office: false,
-    cubicle: false
   };
 
   $scope.today = function() {
@@ -87,9 +83,10 @@ function findaspaceCtrl($scope, $http, BookingService, $location) {
 function workspaceResultsCtrl($scope, $http, $window, BookingService) {
     var date = BookingService.getDate();
     var block = BookingService.getBlock();
+    var type = BookingService.getType();
 
     $http.get('/api/workspaces/available?' + 'day=' + date.getDate() + '&month=' + date.getMonth()
-      + '&year=' + date.getFullYear() + '&block=' + block).
+      + '&year=' + date.getFullYear() + '&block=' + block + '&type=' + type).
     success(function(data, status, headers, config) {
        $scope.workspaces = data;
     });
@@ -99,13 +96,34 @@ function workspaceResultsCtrl($scope, $http, $window, BookingService) {
   };
 }
 
-function bookingformCtrl($scope, $http, BookingService) {
+function bookingformCtrl($scope, $http, BookingService, $location) {
+
+  $scope.reservation = {
+    parking: false,
+    userName: "",
+    userAgency: "",
+    userEmail: "",
+    glCode: "6351500",
+    sapFund: "",
+    costCenter: "",
+    budgetPeriod: "",
+    supervisorName: "",
+    supervisorEmail: ""
+
+  };
 
   function loadspace() {
     $scope.workspace = BookingService.getSpace();
   }
 
   loadspace();
+
+  $scope.setReservationInfo = function() {
+    BookingService.setReservationInfo($scope.reservation);
+    $location.url('/confirmreservation');
+  };
+
+
 }
 
 function loginCtrl($scope, $http, $location) {
@@ -345,4 +363,10 @@ function deleteReservation($http, $scope, $modalInstance, reservation) {
         console.log("Could not remove reservation " + $scope.id);
       })
   }
+}
+
+function confirmReservationCtrl($http, $scope, BookingService) {
+  $scope.workspace = BookingService.getSpace();
+  $scope.reservation = BookingService.getReservationInfo();
+
 }

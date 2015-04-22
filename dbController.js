@@ -39,10 +39,10 @@ exports.getWorkspacesByAvailability = function(req, res, next) {
 
     var query = 
         Workspaces.find(
-            { $or: [
+            { type: req.query.type, $or: [
                 {'bookedOn.date': {$ne: searchDate} }, 
                 {'bookedOn.block': {$ne: req.query.block}}
-                ]
+            ]
             }, 
             function (err, spaces) {
                 if(err) {

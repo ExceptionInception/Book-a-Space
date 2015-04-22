@@ -1,0 +1,118 @@
+div(class="panel panel-default")
+  div.panel-heading
+    h4.panel-title Workspace
+  div.panel-body
+    div.row
+      div.col-sm-4
+        div.list-group
+          a.list-group-item
+            h4.list-group-item-heading <strong>Agency</strong>
+            p.list-group-item-text {{workspace.agency}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Building</strong>
+            p.list-group-item-text {{workspace.building}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Floor</strong>
+            p.list-group-item-text {{workspace.floor}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Room</strong>
+            p.list-group-item-text {{workspace.room}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Type</strong>
+            p.list-group-item-text {{workspace.type}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Size</strong>
+            p.list-group-item-text {{workspace.size}}
+
+      div.col-sm-4
+        div.list-group
+          a.list-group-item
+            h4.list-group-item-heading <strong>AM Rate</strong>
+            p.list-group-item-text {{workspace.amRate | currency}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>PM Rate</strong>
+            p.list-group-item-text {{workspace.pmRate | currency}}
+
+      div.col-sm-4
+        div.list-group
+          a(class="list-group-item list-group-item")
+            h4.list-group-item-heading <strong>Inventory</strong>
+          a(class="list-group-item" ng-repeat="item in workspace.inventory")
+            p(class="list-group-item-text") {{item}}
+
+div(class="panel panel-default")
+  div.panel-heading
+    h4.panel-title Your Details
+  div.panel-body
+      div.col-sm-4
+        div.list-group
+          a.list-group-item
+            h4.list-group-item-heading <strong>You</strong>
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Name</strong>
+            p.list-group-item-text {{reservation.userName}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Email</strong>
+            p.list-group-item-text {{reservation.userEmail}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Agency</strong>
+            p.list-group-item-text {{reservation.userAgency}}
+
+      div.col-sm-4
+        div.list-group
+          a.list-group-item
+            h4.list-group-item-heading <strong>Your Supervisor</strong>
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Name</strong>
+            p.list-group-item-text {{reservation.supervisorName}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Email</strong>
+            p.list-group-item-text {{reservation.supervisorEmail}}
+
+
+div(class="panel panel-default")
+  div.panel-heading
+    h4.panel-title Billing details
+  div.panel-body
+    div.row
+      div.col-sm-4
+        div.list-group
+          a.list-group-item
+            h4.list-group-item-heading <strong>GL Code</strong>
+            p.list-group-item-text {{reservation.glCode}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>SAP Fund</strong>
+            p.list-group-item-text {{reservation.sapFund}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Cost Center</strong>
+            p.list-group-item-text {{reservation.costCenter}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Budget Period</strong>
+            p.list-group-item-text {{reservation.budgetPeriod}}
+
+      div.col-sm-4
+          a.list-group-item
+            h4.list-group-item-heading <strong>Workspace Rate</strong>
+            p.list-group-item-text {{reservation.roomRate | currency}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Parking Rate</strong>
+            p.list-group-item-text {{reservation.parkingRate | currency}}
+
+          a.list-group-item
+            h4.list-group-item-heading <strong>Total</strong>
+            p.list-group-item-text {{reservation.roomRate + reservation.parkingRate | currency}}
