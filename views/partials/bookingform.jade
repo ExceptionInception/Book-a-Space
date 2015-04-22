@@ -54,8 +54,7 @@ div(class="panel panel-default")
         h4.panel-title Parking
       div(class="panel-body row")
         div(class="btn-group col-md-4")
-          | <label class="btn btn-success" ng-model="reservation.parking" btn-radio="'true'">Purchase Token (+$10)</label>
-          | <label class="btn btn-success" ng-model="reservation.parking" btn-radio="'false'">No Token</label>
+          button(type="button" class="btn btn-success" ng-model="reservation.parking" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0") Purchase Parking Token(+$10)
 
 
     div(class="panel panel-default")
@@ -67,18 +66,18 @@ div(class="panel panel-default")
             div.col-sm-6
               div.form-group
                 label(for="name") Name:
-                input(type="text" class="form-control" id="name" placeholder="Name" ng-model="reservation.userName")
+                input(type="text" class="form-control" id="name" placeholder="Name" ng-model="reservation.reserverName")
           div.row
             div.col-sm-6
               div.form-group
                 label(for="agency") Agency:
-                input(type="text" class="form-control" id="agency" placeholder="Agency" ng-model="reservation.userAgency")
+                input(type="text" class="form-control" id="agency" placeholder="Agency" ng-model="reservation.agency")
 
           div.row
             div.col-sm-6
               div.form-group
                 label(for="email") Email:
-                input(type="email" class="form-control" id="email" placeholder="Email" ng-model="reservation.userEmail")
+                input(type="email" class="form-control" id="email" placeholder="Email" ng-model="reservation.reserverEmail")
 
           div.row
             div.col-sm-6

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bookaspace.services', []).
-    service('BookingService', function(){
+    service('BookingService', function($http){
     	var selectedSpace = [];
         var selectedDate = {};
         var reservationInfo = {};
@@ -62,6 +62,32 @@ angular.module('bookaspace.services', []).
 
             getSpace: function() {
             	return selectedSpace;
+            },
+
+            placeOrder: function() {
+                reservationInfo._id = selectedSpace._id + '-' + selectedDate.getMonth().toString() + 
+                    selectedDate.getDate().toString() + selectedDate.getFullYear().toString() +
+                    selectedBlock;
+                reservationInfo.status= "Pending"
+                reservationInfo.workspaceID = selectedSpace._id;
+
+                reservationInfo.dateOf = selectedDate;
+                reservationInfo.dateOf.setHours(0);
+                reservationInfo.dateOf.setMinutes(0);
+                reservationInfo.dateOf.setSeconds(0);
+                reservationInfo.block = selectedBlock;
+
+                $http.post('api/reservations/', reservationInfo)
+                    .success(function(data,status,headers, config) {
+
+                    })
+                    .error(function(data,status,headers, config) {
+                        console.log(data);
+                    });
+
+
+
+                //console.log(reservationInfo);
             }
         };
     });

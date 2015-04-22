@@ -369,4 +369,7 @@ function confirmReservationCtrl($http, $scope, BookingService) {
   $scope.workspace = BookingService.getSpace();
   $scope.reservation = BookingService.getReservationInfo();
 
+  $scope.placeOrder = function() {
+    BookingService.placeOrder();
+  };
 }

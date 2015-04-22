@@ -10,7 +10,7 @@ router.get('/:id', function(req, res, next) {
 	DBController.getReservation(req, res, next);
 });
 
-router.post('/', function(req, res, next) {fg
+router.post('/', function(req, res, next) {
 	DBController.createReservation(req, res, next);
 });
 
