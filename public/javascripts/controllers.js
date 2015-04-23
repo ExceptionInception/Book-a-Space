@@ -1,5 +1,12 @@
 'use strict';
 
+/*
+
+     <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=Current%20location&destination=Penn%20State%20University%2C%20State%20College%2C%20PA%2C%20United%20States&key=AIzaSyAq9hQ0FBtMNbK5hWcGnXXYKynjIj40jIE"></iframe>
+
+
+*/
+
 function testCtrl($scope, $http) {
 
   $http.get('/api/workspaces').
@@ -7,6 +14,94 @@ function testCtrl($scope, $http) {
        $scope.name = data.name;
        $scope.class = "myClassName";
     });
+}
+
+function mapCtrl($scope, $http) {
+
+
+}
+
+// Angular is not nice here. Need to use global
+// to work around limitations in software.
+var _receiptId;
+
+function receiptCtrl($scope, $http) {
+
+  console.log("=======");
+  console.log(_receiptId);
+
+  $http.get('/api/reservations/get?id=' + _receiptId).
+    success(function(data, status, headers, config) {
+
+      var k = data[0];
+
+      $http.get('/api/workspaces/' + k.workspaceID).
+         success(function(data, status, headers, config) {
+
+           var j = data;
+
+           $scope.workspaceId = j._id;
+           $scope.workspaceType = j.type;
+           $scope.workspaceAgency = j.agency;
+           $scope.workspaceBuilding = j.building;
+           $scope.workspaceFloor = j.floor;
+           $scope.workspaceRoom = j.room;
+           $scope.workspaceSize = j.size;
+
+//       li Rate: {{workspaceRate}}
+
+           $scope.workspaceInventory = j.inventory;
+
+         });
+
+       $scope.reservationId = k._id;
+       $scope.reservationCreationDate = k.creationDate;
+       $scope.reservationDateOf = k.dateOf;
+       $scope.reserverName = k.reserverName;
+       $scope.supervisorName = k.supervisorName;
+       $scope.reserverEmail = k.reserverEmail;
+       $scope.supervisorEmail = k.supervisorEmail;
+       $scope.parkingToken = k.parkingToken;
+       $scope.parkingCost = k.parkingCost;
+       $scope.reservationStatus = k.status;
+       $scope.glCode = k.glCode;
+       $scope.sapFund = k.sapFund;
+       $scope.budgetPeriod = k.budgetPeriod;
+       $scope.costCenter = k.costCenter;
+    });
+
+  $scope.view = function () {
+     _receiptId = 0;
+     $scope.location.url('/myreservations');
+  }
+
+  $scope.print = function() {
+
+  }
+}
+
+function policyCtrl($scope, $http) {
+
+  // Nothing to do.
+}
+
+function viewspaceCtrl($scope, $http) {
+
+  // Note: For this prototype, assuming username=reserver.
+
+  $http.get('/api/reservations/get?user=' + $scope.currentUser).
+    success(function(data, status, headers, config) {
+       $scope.reservations = data;
+    });
+
+  $scope.printReceipt = function($index) {
+
+  // Wrong index??
+
+    console.log("INDEX = " + $index + " ==================");
+    _receiptId = $scope.reservations [$index]._id;
+    $scope.location.url('/receipt');
+  }
 }
 
 function appctrl($scope, $http) {
@@ -122,8 +217,6 @@ function bookingformCtrl($scope, $http, BookingService, $location) {
     BookingService.setReservationInfo($scope.reservation);
     $location.url('/confirmreservation');
   };
-
-
 }
 
 function loginCtrl($scope, $http, $location) {

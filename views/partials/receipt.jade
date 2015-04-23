@@ -1,7 +1,45 @@
 div(class="panel panel-default")
  div.panel-heading
-    h1.panel-title Map
-  div.panel-body
-     <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=Current%20location&destination=Penn%20State%20University%2C%20State%20College%2C%20PA%2C%20United%20States&key=AIzaSyAq9hQ0FBtMNbK5hWcGnXXYKynjIj40jIE"></iframe>
+    h1.panel-title Reservation Receipt
+  div.panel-body 
+  p
+    b Booking information
+    ul
+      li Booked on: {{bookedOnDate}}
+      li Block: {{bookedOnBlock}}
+  p
+    b Reservation information
+    ul
+      li Reservation ID: {{reservationId}}
+      li Created on: {{reservationCreateDate}}
+      li Date of: {{reservationDateOf}}
+      li Reserver: {{reserverName}}
+      li Supervisor: {{supervisorName}}
+      li Reserver email: {{reserverEmail}}
+      li Supervisor email: {{supervisorEmail}}
+      li Parking token: {{parkingToken}}
+      li Parking cost: {{parkingCost}}
+      li Status: {{reservationStatus}}
+      li GLCode: {{glCode}}
+      li SAP Fund: {{sapFund}}
+      li Budget Period: {{budgetPeriod}}
+      li Cost Center: {{costCenter}}
+  p
+    b Workspace reservation
+    ul
+      li Workspace ID: {{workspaceId}}
+      li Type: {{workspaceType}}
+      li Agency: {{workspaceAgency}}
+      li Building: {{workspaceBuilding}}
+      li Floor: {{workspaceFloor}}
+      li Room: {{workspaceRoom}}
+      li Size: {{workspaceSize}}
+      li Rate: {{workspaceRate}}
+  p
+    b Inventory information
+    ul
+      li Inventory: {{workspaceInventory}}
 
+  button(type="button" ng-click='view()' class="btn btn-primary pull-left") Reservations
+  button(type="button" ng-click='print()' class="btn btn-primary pull-right") Print
 

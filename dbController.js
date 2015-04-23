@@ -112,6 +112,32 @@ exports.createReservation = function(req, res, next) {
     });
 };
 
+exports.getReservationsByUser = function(req, res, next) {
+
+  if ( req.query.user != null ) {
+
+    Reservations.find( {reserverName: req.query.user}, function(err, reservations) {
+        if (err) {
+            return next(err);
+        } else {
+            res.json(reservations);
+        }
+    });
+
+   }
+   else if (req.query.id != null ) {
+
+    Reservations.find( {"_id": req.query.id }, function(err, reservations) {
+        if (err) {
+            return next(err);
+        } else {
+            res.json(reservations);
+        }
+    });
+
+   }
+};
+
 exports.getReservations = function(req, res, next) {
     Reservations.find(req.query, function(err, reservations) {
         if (err) {

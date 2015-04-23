@@ -5,6 +5,28 @@ db.createCollection("reservations");
 var testDate = new Date(2015, 3, 27);
 
 db.reservations.insert({
+	_id:"04102515AM",
+	workspaceID: "FP-7-WS-470-11",
+	dateOf: testDate,
+	month: "04",
+	day: "10",
+	year: "2015",
+	block: "AM",
+	reserverName: "John Doe",
+	reserverEmail: "jdoe@exmaple.com",
+	agency: "Dept of The Budget",
+	supervisorName: "Super Visor",
+	supervisorEmail: "supervisor@exmaple.com",
+	parkingToken: true,
+	status: "Pending",
+	parkingCost: 10,
+	glCode: "6351500",
+	sapFund: "00056778",
+	costCenter: "425454235",
+	budgetPeriod: "2015"
+});
+
+db.reservations.insert({
 	_id:"04102015AM",
 	workspaceID: "FP-7-WS-430-189A",
 	dateOf: testDate,

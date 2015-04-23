@@ -22,6 +22,26 @@ angular.module('bookaspace', ['ngRoute', 'ui.bootstrap',
        controller: testCtrl
     }).
 
+    when('/map', {
+      templateUrl: 'partials/map',
+      controller: mapCtrl
+    }).
+
+    when('/policy', {
+      templateUrl: 'partials/policy',
+      controller: policyCtrl
+    }).
+
+    when('/receipt', {
+      templateUrl: 'partials/receipt',
+      controller: receiptCtrl
+    }).
+
+    when ('/myreservations', {
+       templateUrl: 'partials/view',
+       controller: viewspaceCtrl
+    }).
+
     // workspace search criteria page
     when ('/findaspace', {
        templateUrl: 'partials/findaspace',

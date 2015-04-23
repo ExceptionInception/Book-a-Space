@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
 	DBController.getReservations(req, res, next);
 });
 
+router.get('/:get', function(req,res,next) {
+        DBController.getReservationsByUser(req,res,next);
+});
+
 router.get('/:id', function(req, res, next) {
 	DBController.getReservation(req, res, next);
 });
