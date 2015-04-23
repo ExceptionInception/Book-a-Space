@@ -1,0 +1,59 @@
+
+div(class="panel panel-default")
+  div.panel-heading
+    h1.panel-title Reservations
+  div.panel-body
+    accordion(close-others="false")
+      accordion-group(ng-repeat="reservation in reservations")
+        accordion-heading
+          | {{reservation.workspaceID}}
+          | <i class="pull-right glyphicon" 
+          |   ng-class="{'glyphicon-chevron-down': status.open, 
+          |   'glyphicon-chevron-right': !status.open}"></i>
+
+        div.row
+          div.col-sm-6
+            div.list-group
+              a.list-group-item
+                h4.list-group-item-heading <strong>Status</strong>
+                p.list-group-item-text {{reservation.status}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Agency</strong>
+                p.list-group-item-text {{reservation.agency}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Creation Date</strong>
+                p.list-group-item-text {{reservation.creationDate | date}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Date Of</strong>
+                p.list-group-item-text {{reservation.dateOf | date}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Block</strong>
+                p.list-group-item-text {{reservation.block}}
+
+          div.col-sm-6
+            div.list-group
+              a.list-group-item
+                h4.list-group-item-heading <strong>Reserver</strong>
+                p.list-group-item-text {{reservation.reserverName}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Reserver Email</strong>
+                p.list-group-item-text {{reservation.reserverEmail}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Supervisor</strong>
+                p.list-group-item-text {{reservation.supervisorName}}
+
+              a.list-group-item
+                h4.list-group-item-heading <strong>Supervisor Email</strong>
+                p.list-group-item-text {{reservation.supervisorEmail}}
+
+        div.row
+          div(class="col-sm-2 col-sm-offset-10")
+            p 
+              button(ng-click="printReceipt($index)" type="button" class="btn btn-warning" id="spacedBtn") Receipt
+

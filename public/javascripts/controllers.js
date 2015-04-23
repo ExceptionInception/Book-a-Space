@@ -77,6 +77,7 @@ function receiptCtrl($scope, $http) {
 
   $scope.print = function() {
 
+     window.print();
   }
 }
 
