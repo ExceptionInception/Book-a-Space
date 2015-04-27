@@ -25,12 +25,11 @@ function mapCtrl($scope, $http) {
 // to work around limitations in software.
 var _receiptId;
 
-function receiptCtrl($scope, $http) {
+function receiptCtrl($scope, $http, $location) {
 
-  console.log("=======");
-  console.log(_receiptId);
+  $scope.reservationID = $location.search()['id'];
 
-  $http.get('/api/reservations/get?id=' + _receiptId).
+  $http.get('/api/reservations/get?id=' + $scope.reservationID).
     success(function(data, status, headers, config) {
 
       var k = data[0];
@@ -101,7 +100,7 @@ function viewspaceCtrl($scope, $http) {
 
     console.log("INDEX = " + $index + " ==================");
     _receiptId = $scope.reservations [$index]._id;
-    $scope.location.url('/receipt');
+    $scope.location.url('/receipt?id=' + _receiptId);
   }
 }
 
@@ -465,6 +464,6 @@ function confirmReservationCtrl($http, $scope, BookingService, $location) {
 
   $scope.placeOrder = function() {
     BookingService.placeOrder();
-    $location.url('/receipt');
+    $location.url('/receipt?id=' + $scope.reservation._id);
   };
 }
