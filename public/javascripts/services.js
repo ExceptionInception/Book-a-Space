@@ -77,6 +77,8 @@ angular.module('bookaspace.services', []).
                 reservationInfo.dateOf.setSeconds(0);
                 reservationInfo.block = selectedBlock;
 
+                console.log(reservationInfo.block);
+
                 $http.post('api/reservations/', reservationInfo)
                     .success(function(data,status,headers, config) {
 

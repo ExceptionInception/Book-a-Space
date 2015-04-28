@@ -17,7 +17,8 @@ var ReservationSchema = new Mongoose.Schema({
 		glCode: String,
 		sapFund: String,
 		budgetPeriod: String,
-		costCenter: String
+		costCenter: String,
+		block: String
 });
 
 module.exports = Mongoose.model('Reservation', ReservationSchema);
