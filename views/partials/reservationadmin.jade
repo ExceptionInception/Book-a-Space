@@ -31,12 +31,6 @@ div(class="panel panel-default")
         div.col-sm-4
           label(for="issuer") Issuer:
           input(type="text" class="form-control" id="issuer" ng-model="issuer")           
-        div.col-sm-4
-          label(for="startdate") Start
-          input(type="date" class="form-control" id="startdate" ng-model="startdate")
-        div.col-sm-4
-          label(for="enddate") End
-          input(type="date" class="form-control" id="startdate" ng-model="enddate")
 
 div(class="panel panel-default")
   div.panel-heading
@@ -45,7 +39,7 @@ div(class="panel panel-default")
     accordion(close-others="false")
       accordion-group(ng-repeat="reservation in reservations | orderBy: sortExpression | filter: query" is-open="status.open")
         accordion-heading
-          | {{reservation.workspaceID}}
+          | {{reservation._id}}
           | <i class="pull-right glyphicon" 
           |   ng-class="{'glyphicon-chevron-down': status.open, 
           |   'glyphicon-chevron-right': !status.open}"></i>

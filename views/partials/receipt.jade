@@ -1,45 +1,35 @@
 div(class="panel panel-default")
  div.panel-heading
     h1.panel-title Reservation Receipt
-  div.panel-body 
-  p
-    b Booking information
-    ul
-      li Booked on: {{bookedOnDate | date}}
-      li Block: {{bookedOnBlock}}
-  p
-    b Reservation information
-    ul
-      li Reservation ID: {{reservationId}}
-      li Created on: {{reservationCreateDate}}
-      li Date of: {{reservationDateOf}}
-      li Reserver: {{reserverName}}
-      li Supervisor: {{supervisorName}}
-      li Reserver email: {{reserverEmail}}
-      li Supervisor email: {{supervisorEmail}}
-      li Parking token: {{parkingToken}}
-      li Parking cost: {{parkingCost}}
-      li Status: {{reservationStatus}}
-      li GLCode: {{glCode}}
-      li SAP Fund: {{sapFund}}
-      li Budget Period: {{budgetPeriod}}
-      li Cost Center: {{costCenter}}
-  p
-    b Workspace reservation
-    ul
-      li Workspace ID: {{workspaceId}}
-      li Type: {{workspaceType}}
-      li Agency: {{workspaceAgency}}
-      li Building: {{workspaceBuilding}}
-      li Floor: {{workspaceFloor}}
-      li Room: {{workspaceRoom}}
-      li Size: {{workspaceSize}}
-      li Rate: {{workspaceRate}}
-  p
-    b Inventory information
-    ul
-      li Inventory: {{workspaceInventory}}
+  div.panel-body
+    div.row
+      div.receipt-head
+        div.col-xs-4
+          p.list-group-item-text {{reserverName}}
+          p.list-group-item-text {{reserverEmail}}
 
-  button(type="button" ng-click='view()' class="btn btn-primary pull-left") Reservations
-  button(type="button" ng-click='print()' class="btn btn-primary pull-right") Print
+        div(class="receipt col-xs-4 col-xs-offset-4")
+          p.list-group-item-text  {{workspaceId}} <br> {{workspaceBuilding}} <br> {{workspaceFloor}} Floor <br> {{workspaceRoom}}
 
+    div.receipt-body
+      table.table
+        thead
+          tr
+            th Date
+            th Description
+            th Charge
+        tbody
+          tr
+            td {{reservationDateOf | date}}
+            td Room Rate
+            td {{workspaceRate | currency}}
+          tr
+            td {{reservationDateOf | date}}
+            td Parking Cost
+            td {{parkingCost | currency}}
+
+    div.row
+      div(class="col-xs-4 col-xs-offset-8")
+        p <strong>Balance:</strong> {{workspaceRate + parkingCost | currency}}
+
+    button(type="button" ng-click='print()' class="btn btn-primary pull-right hidden-print") Print

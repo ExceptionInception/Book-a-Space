@@ -21,9 +21,6 @@ function mapCtrl($scope, $http) {
 
 }
 
-// Angular is not nice here. Need to use global
-// to work around limitations in software.
-var _receiptId;
 
 function receiptCtrl($scope, $http, $location) {
 
@@ -46,8 +43,8 @@ function receiptCtrl($scope, $http, $location) {
            $scope.workspaceFloor = j.floor;
            $scope.workspaceRoom = j.room;
            $scope.workspaceSize = j.size;
+           $scope.workspaceRate = j.amRate;
 
-//       li Rate: {{workspaceRate}}
 
            $scope.workspaceInventory = j.inventory;
 
@@ -67,6 +64,7 @@ function receiptCtrl($scope, $http, $location) {
        $scope.sapFund = k.sapFund;
        $scope.budgetPeriod = k.budgetPeriod;
        $scope.costCenter = k.costCenter;
+       $scope.block = k.block;
     });
 
   $scope.view = function () {
@@ -75,7 +73,6 @@ function receiptCtrl($scope, $http, $location) {
   }
 
   $scope.print = function() {
-
      window.print();
   }
 }
@@ -99,8 +96,8 @@ function viewspaceCtrl($scope, $http) {
   // Wrong index??
 
     console.log("INDEX = " + $index + " ==================");
-    _receiptId = $scope.reservations [$index]._id;
-    $scope.location.url('/receipt?id=' + _receiptId);
+    var receiptId = $scope.reservations[$index]._id;
+    $scope.location.url('/receipt?id=' + receiptId);
   }
 }
 

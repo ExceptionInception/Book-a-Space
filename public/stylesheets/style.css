@@ -4,9 +4,13 @@ body {
   background: #0099CC
 }
 
-#resultOptions {
-    position: fixed;
-    z-index:100;
+.receipt-head {
+	margin-top: 20px;
+	margin-bottom: 150px;
+}
+
+.receipt-body {
+	margin-bottom: 100px;
 }
 
 #spacedBtn {
