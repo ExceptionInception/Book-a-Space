@@ -58,7 +58,7 @@ function receiptCtrl($scope, $http, $location) {
        $scope.reserverEmail = k.reserverEmail;
        $scope.supervisorEmail = k.supervisorEmail;
        $scope.parkingToken = k.parkingToken;
-       $scope.parkingCost = k.parkingCost;
+       $scope.parkingCost = k.parkingRate;
        $scope.reservationStatus = k.status;
        $scope.glCode = k.glCode;
        $scope.sapFund = k.sapFund;
